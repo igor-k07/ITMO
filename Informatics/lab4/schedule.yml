@@ -1,0 +1,40 @@
+title: Расписание — неделя (2 дня)
+days:
+  - name: Понедельник
+    events:
+      - subject: Основы дискретной математики(базовый уровень)
+        event_type: Лекция
+        time:
+          start: "9:50"
+          end: "11:20"
+        vcyvy: 111
+        teacher: Поляков Владимир Иванович
+        location:
+          room: ауд. 2337
+          address: Кронверский пр.
+          building: д.49
+        comment: None
+      - subject: Основы дискретной математики(базовый уровень)
+        event_type: Практика
+        time:
+          start: "9:50"
+          end: "11:20"
+        teacher: Поляков Владимир Иванович
+        location:
+          room: ауд. 2337
+          address: Кронверский пр.
+          building: д.49
+        comment: None
+  - name: Четверг
+    events:
+      - subject: Россия в истории современных международных отношений
+        event_type: Практика
+        time:
+          start: "9:50"
+          end: "11:20"
+        teacher: Шумяков Рауф Артурович
+        location:
+          room: ауд. 2337
+          address: Кронверский пр.
+          building: д.49
+        comment: None

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule>
+  <title>Расписание — неделя (2 дня)</title>
+  <day>
+    <name>Понедельник</name>
+    <event>
+      <subject>Основы дискретной математики(базовый уровень)</subject>
+      <event_type>Лекция</event_type>
+      <time>
+        <start>9:50</start>
+        <end>11:20</end>
+      </time>
+      <vcyvy>111</vcyvy>
+      <teacher>Поляков Владимир Иванович</teacher>
+      <location>
+        <room>ауд. 2337</room>
+        <address>Кронверский пр.</address>
+        <building>д.49</building>
+      </location>
+      <comment>None</comment>
+    </event>
+    <event>
+      <subject>Основы дискретной математики(базовый уровень)</subject>
+      <event_type>Практика</event_type>
+      <time>
+        <start>9:50</start>
+        <end>11:20</end>
+      </time>
+      <teacher>Поляков Владимир Иванович</teacher>
+      <location>
+        <room>ауд. 2337</room>
+        <address>Кронверский пр.</address>
+        <building>д.49</building>
+      </location>
+      <comment>None</comment>
+    </event>
+  </day>
+  <day>
+    <name>Четверг</name>
+    <event>
+      <subject>Россия в истории современных международных отношений</subject>
+      <event_type>Практика</event_type>
+      <time>
+        <start>9:50</start>
+        <end>11:20</end>
+      </time>
+      <teacher>Шумяков Рауф Артурович</teacher>
+      <location>
+        <room>ауд. 2337</room>
+        <address>Кронверский пр.</address>
+        <building>д.49</building>
+      </location>
+      <comment>None</comment>
+    </event>
+  </day>
+</schedule>
