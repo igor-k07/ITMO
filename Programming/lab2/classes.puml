@@ -1,0 +1,190 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam classFontSize 10
+skinparam packageFontSize 12
+skinparam packageFontStyle bold
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam linetype ortho
+
+
+' ==================== ПАКЕТ: БАЗОВЫЕ КЛАССЫ ====================
+package "ru.ifmo.se.pokemon" as base {
+  class Pokemon {}
+  class Move {}
+  class DamageMove {}
+  class StatusMove {}
+  class PhysicalMove {}
+  class SpecialMove {}
+  class Effect {}
+}
+
+' ==================== ПАКЕТ: АТАКИ (MOVES) ====================
+package moves {
+
+  ' ========== ФИЗИЧЕСКИЕ АТАКИ ==========
+  package physical {
+    class DizzyPunch {
+      + DizzyPunch()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+
+    class ShadowClaw {
+      + ShadowClaw()
+      ~ describe(): String
+    }
+
+    class WakeUpSlap {
+      + WakeUpSlap()
+      ~ applyOppDamage(target: Pokemon, damage: double): void
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+  }
+
+  ' ========== СПЕЦИАЛЬНЫЕ АТАКИ ==========
+  package special_damage {
+    class DreamEater {
+      + DreamEater()
+      ~ applyOppDamage(target: Pokemon, damage: double): void
+      ~ describe(): String
+    }
+
+    class Flamethrower {
+      + Flamethrower()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+
+    class MirrorShot {
+      + MirrorShot()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+  }
+
+  ' ========== СТАТУСНЫЕ АТАКИ ==========
+  package status {
+    class DoubleTeam{
+      + DoubleTeam()
+      ~ applySelfEffects(attacker: Pokemon): void
+      ~ describe(): String
+    }
+
+    class IronDefense {
+      + IronDefense()
+      ~ applySelfEffects(attacker: Pokemon): void
+      ~ describe(): String
+    }
+
+    class Sing {
+      + Sing()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+
+    class Swagger {
+      + Swagger()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+
+    class TailWhip {
+      + TailWhip()
+      ~ applyOppEffects(target: Pokemon): void
+      ~ describe(): String
+    }
+  }
+}
+
+' ==================== ПАКЕТ: ПОКЕМОНЫ ====================
+package pokemons {
+  class Kangaskhan {
+    + Kangaskhan(name: String, level: int)
+  }
+
+  class Igglybuff {
+    + Igglybuff(name: String, level: int)
+  }
+
+  class Jigglypuff {
+    + Jigglypuff(name: String, level: int)
+  }
+
+  class Wigglytuff {
+    + Wigglytuff(name: String, level: int)
+  }
+
+  class Pineco {
+    + Pineco(name: String, level: int)
+  }
+
+  class Forretress {
+    + Forretress(name: String, level: int)
+  }
+}
+
+' ==================== НАСЛЕДОВАНИЕ (ИЕРАРХИЯ) ====================
+Move <|-- DamageMove
+Move <|-- StatusMove
+DamageMove <|-- PhysicalMove
+DamageMove <|-- SpecialMove
+
+' Наследование физических атак
+PhysicalMove <|-- DizzyPunch
+PhysicalMove <|-- ShadowClaw
+PhysicalMove <|-- WakeUpSlap
+
+' Наследование специальных атак
+SpecialMove <|-- DreamEater
+SpecialMove <|-- Flamethrower
+SpecialMove <|-- MirrorShot
+
+' Наследование статусных атак
+StatusMove <|-- DoubleTeam
+StatusMove <|-- IronDefense
+StatusMove <|-- Sing
+StatusMove <|-- Swagger
+StatusMove <|-- TailWhip
+
+' Наследование покемонов (внешний класс Pokemon)
+Pokemon <|-- Kangaskhan
+Pokemon <|-- Igglybuff
+Pokemon <|-- Pineco
+
+' Эволюционные цепочки
+Igglybuff <|-- Jigglypuff
+Jigglypuff <|-- Wigglytuff
+Pineco <|-- Forretress
+
+' ==================== КОМПОЗИЦИЯ (ПОКЕМОН ИМЕЕТ АТАКИ) ====================
+' атаки Kangaskhan
+Kangaskhan *-- DizzyPunch
+Kangaskhan *-- ShadowClaw
+Kangaskhan *-- Swagger
+Kangaskhan *-- TailWhip
+
+' атаки Pineco
+Pineco *-- Swagger
+Pineco *-- IronDefense
+Pineco *-- DoubleTeam
+
+' атаки Forretress
+Forretress *-- MirrorShot
+
+' атаки Igglybuff
+Igglybuff *-- Flamethrower
+Igglybuff *-- DreamEater
+
+' атаки Jigglypuff
+Jigglypuff *-- WakeUpSlap
+
+' атаки Wigglytuff
+Wigglytuff *-- Sing
+
+' ==================== АССОЦИАЦИЯ (ЭФФЕКТЫ) ====================
+' WakeUpSlap использует Effect
+WakeUpSlap --> Effect
+
+@enduml
