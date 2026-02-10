@@ -1,0 +1,119 @@
+#!/bin/bash
+
+mkdir lab0
+cd lab0
+
+echo "-----Step1-----"
+
+touch krabby6 leavanny0 misdreavus3
+mkdir combee5 grimer0 happiny1
+
+mkdir combee5/slugma
+mkdir combee5/octillery
+touch combee5/zebstrika
+touch combee5/pignite
+touch combee5/slakoth
+
+mkdir grimer0/silcoon
+mkdir grimer0/bibarel
+mkdir grimer0/togetic
+touch grimer0/swoobat
+touch grimer0/excadrill
+touch grimer0/ampharos
+
+mkdir happiny1/shroomish
+mkdir happiny1/cacnea
+mkdir happiny1/rampardos
+touch happiny1/geodude
+touch happiny1/vaporeon
+touch happiny1/pansear
+
+echo -e "Развитые способности Sap Sipper" > combee5/zebstrika
+echo -e "Возможности\nOverland=7 Surface=5 Jump=4 Power=5 Intelligence=4 Firestarter=0\nHeater=0" > combee5/pignite
+echo -e "Ходы After You Covet Double-Edge Dynamicpunch Fire\nPunch Focus Punch Fury Cutter Gunk Shot Ice Punch Ice Wind Mega Kick\nMega Punch Mud-Slap Seismic Toss Shock Wave Sleep Talk Snore Sucker\nPunch Water Pulse Thunderpunch" > combee5/slakoth
+echo -e "Тип покемона PSYCHIC\nFLYING" > grimer0/swoobat
+echo -e "weight=89.1 height=28.0 atk=14\ndef=6" > grimer0/excadrill
+echo -e "weight=135.6 height=55.0 atk=8 def=8" > grimer0/ampharos
+echo -e "Ходы\nAncientpower Block Body Slam Counter Dynamicpunch Earth Power Fire\nPunch Iron Defense Metronome Mud-Slap Rollout Seismic Toss Sleep Talk\nSnore Stealth Rock Sucker Punch Superpower\nThunderpunch" > happiny1/geodude
+echo -e "satk=11 sdef=10 spd=7" > happiny1/vaporeon
+echo -e "Возможности\nOverland=6 Surface=4 Jump=4 Power=2 Intelligence=4" > happiny1/pansear
+echo -e "Живет\nBeach" > krabby6
+echo -e "Возможности Overland=8 Surface=4 Jump=3 Power=3\nIntelligence=4 Threaded=0" > leavanny0
+echo -e "Возможности Overland=1\nSurface=1 Sky=8 Power=1 Intelligencee=4 Invisibility=0 Phasing=0" > misdreavus3
+
+echo "-----Step2-----"
+
+chmod u=rwx,g=rx,o=w combee5
+chmod 511 combee5/slugma
+chmod u=r,g=r,o= combee5/zebstrika
+chmod 600 combee5/pignite
+chmod u=,g=,o=rw combee5/slakoth
+chmod 337 combee5/octillery
+chmod a=rwx grimer0
+chmod 750 grimer0/silcoon
+chmod 620 grimer0/swoobat
+chmod 006 grimer0/excadrill
+chmod 573 grimer0/bibarel
+chmod 770 grimer0/togetic
+chmod 664 grimer0/ampharos
+chmod u=rx,g=rwx,o=rwx happiny1
+chmod 770 happiny1/shroomish
+chmod 044 happiny1/geodude
+chmod 361 happiny1/cacnea
+chmod 624 happiny1/vaporeon
+chmod 006  happiny1/pansear
+chmod a=rwx happiny1/rampardos
+chmod u=rw,g=,o=r krabby6
+chmod 640 leavanny0
+chmod u=,g=,o=rw misdreavus3
+
+echo "-----Step3-----"
+
+chmod u+w happiny1
+chmod 702 grimer0/excadrill
+chmod 700 combee5/pignite
+
+cp -r grimer0 ./happiny1/rampardos
+ln -s misdreavus3 ./grimer0/swoobatmisdreavus
+ln misdreavus3 ./combee5/zebstrikamisdreavus
+ln -s combee5 ./Copy_11
+cat leavanny0 > ./combee5/zebstrikaleavany
+chmod u+w combee5/slugma
+cp krabby6 ./combee5/slugma
+cat ./combee5/pignite ./grimer0/excadrill > ./misdreavus3_36
+
+chmod u=rwx,g=rx,o=w combee5
+chmod 006 grimer0/excadrill
+chmod 600 combee5/pignite
+
+echo "-----Step4-----"
+
+echo "-4.1-"
+wc -m grimer0/* 2>&1 | sort -nr
+
+echo "-4.2-"
+ls -lR grimer0 2>&1 | sort -rk4
+
+echo "-4.3-"
+grep -n "cke" grimer0/* 2>/dev/null
+
+echo "-4.4-"
+grep -rn '' **/*n | sort
+# grep -rn '' ./ --include='*n' | sort
+
+echo "-4.5-"
+grep -rn '' **/*e 2>/tmp/errors.log | sort -r
+
+echo "-4.6-"
+grep -n "te" combee5/pignite combee5/slakoth grimer0/swoobat grimer0/excadrill grimer0/ampharos 2>/tmp/errors.log
+
+
+echo "-----Step5-----"
+
+rm -f misdreavus3
+rm -f grimer0/swoobat
+rm -rf Copy_*
+rm -rf combee5/zebstrikamisdreav*
+chmod -R 737 combee5
+rm -rf combee5
+rmdir happiny1/shroomish
