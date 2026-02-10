@@ -1,0 +1,150 @@
+@startuml
+
+' =======================
+' Абстрактный базовый класс
+' =======================
+abstract class Entity {
+    -state : EntityState
+    +act(environment: Environment) : void
+}
+
+' =======================
+' Интерфейс
+' =======================
+interface Memory {
+    +think(thought: String) : void
+    +remember(action: String) : void
+    +understand(action: String) : void
+    +dontUnderstand(action: String) : void
+}
+
+interface Hearing {
+    +hear(sound: Sound) : void
+}
+
+interface Feeling {
+    +feel(state: EntityState) : void
+    +feel(action: String) : void
+    +dontFeel(state: EntityState) : void
+    +dontFeel(action: String) : void
+}
+
+' =======================
+' Основной персонаж
+' =======================
+class Character {
+    -name : String
+    -emotion : Emotion
+    -sleeping : boolean
+    -location : Location
+    +sleep() : void
+    +wakeUp() : void
+    +act(environment: Environment) : void
+    +think(thought: String) : void
+    +remember(action: String) : void
+    +understand(action: String) : void
+    +dontUnderstand(action: String) : void
+    +hear(sound: Sound) : void
+    +feel(state: EntityState) : void
+    +feel(action: String) : void
+    +dontFeel(state: EntityState) : void
+    +dontFeel(action: String) : void
+    +equals(object: Object) : boolean
+    +hashCode() : int
+    +toString() : String
+
+}
+
+Entity <|-- Character
+Memory <|.. Character
+Feeling <|.. Character
+Hearing <|.. Character
+
+' =======================
+' Окружение
+' =======================
+class Environment {
+    -rocket : Rocket
+    -name : String
+    +getRocket() : Rocket
+    +getName() : String
+
+}
+
+' =======================
+' Ракета и двигатель
+' =======================
+class Rocket {
+    -state : FlightState
+    -engine : Engine
+    +startFlight() : void
+    +isInFlight() : boolean
+    +getEngine() : Engine
+    +equals(object: Object) : boolean
+    +hashCode() : int
+    +toString() : String
+}
+
+class Engine {
+    -sound : Sound
+    +getSound() : String
+    +equals(object: Object) : boolean
+    +hashCode() : int
+    +toString() : String
+
+}
+
+Environment --> Rocket
+Rocket *-- Engine
+
+' =======================
+' Record
+' =======================
+class Location <<record>> {
+    name : String
+}
+
+Character --> Location
+
+' =======================
+' Перечисления
+' =======================
+enum Emotion {
+    CALM
+    CONFUSION
+    JOY
+    PANIC
+}
+
+enum FlightState {
+    ON_EARTH
+    IN_FLIGHT
+}
+
+enum EntityState {
+    GRAVITY
+    ZERO_GRAVITY
+}
+
+enum Sound {
+    ENGINE_SOUND
+}
+
+Entity --> EntityState
+Character --> Emotion
+Engine --> Sound
+Rocket --> FlightState
+
+' =======================
+' Исключения
+' =======================
+class NotInFlightException <<exception>> {
+    +getMessage() : String
+}
+
+class PanicException <<exception>>
+
+Character ..> NotInFlightException : throws
+Character ..> PanicException : throws
+
+@enduml
