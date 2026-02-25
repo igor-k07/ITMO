@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="speech_recognition" />
+          <option value="firstsite.firstsite.urls.pageNotFound" />
+          <option value="firstsite.firstsite.urls.women" />
+          <option value="firstsite.firstsite.urls.pageNotFounde" />
+          <option value="firstsite.firstsite.urls.*" />
+          <option value="urls.women" />
+          <option value="urls.pageNotFound" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
