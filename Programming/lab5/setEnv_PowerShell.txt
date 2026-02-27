@@ -1,0 +1,2 @@
+$env:DATA_FILE="MusicBands.json"
+echo $env:DATA_FILE

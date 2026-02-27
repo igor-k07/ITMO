@@ -16,13 +16,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Ask.AskBreak {
         String dataFilePath = System.getenv("DATA_FILE");
-        System.out.println(dataFilePath);
 
         var console = new StandartConsole();
-        if (dataFilePath == null) {
-            console.println("Укажите путь до считываемого файла в переменной окружения DATA_FILE");
-            System.exit(1);
-        }
 
         var dumpManager = new DumpManager(dataFilePath, console);
         var collectionManager = new CollectionManager(dumpManager);
@@ -52,14 +47,5 @@ public class Main {
         }};
 
         new Runner(console, commandManager).interactiveMode();
-
-//        Album abbeyRoad = new Album("Abbey Road", 17L, 2820, 31000000.0);
-//        Album nightVisions = new Album("Night Visions", 11L, 2580, 8000000.0);
-//        MusicBand theBeatles = new MusicBand(1, "The Beatles",
-//                new Coordinates(6L, 4L), ZonedDateTime.now(),
-//                4L, 12L, MusicGenre.HIP_HOP, abbeyRoad);
-//        MusicBand imagineDragons = new MusicBand(2, "Imagine Dragons",
-//                new Coordinates(10L, 2L), ZonedDateTime.now(),
-//                4L, 7L, MusicGenre.POST_ROCK, nightVisions);
     }
 }

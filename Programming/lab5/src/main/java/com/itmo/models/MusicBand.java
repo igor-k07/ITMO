@@ -82,7 +82,7 @@ public class MusicBand extends Element implements Serializable {
         if (name == null || name.isEmpty()) return false;
         if (coordinates == null || !coordinates.validate()) return false;
         if (creationDate == null) return false;
-        if (numberOfParticipants <= 0) return false;
+        if (numberOfParticipants != null && numberOfParticipants <= 0) return false;
         if (albumsCount == null || albumsCount <= 0) return false;
         if (genre == null) return false;
         if (bestAlbum == null || !bestAlbum.validate()) return false;

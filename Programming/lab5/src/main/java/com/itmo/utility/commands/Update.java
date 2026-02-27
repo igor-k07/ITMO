@@ -40,7 +40,7 @@ public class Update extends Command {
                 return new ExecutionResponse(false, "Несуществующий id");
             }
 
-            console.println("Создание новой Музыкальной группы:");
+            console.println("Изменение музыкальной группы с id = " + id + ':');
             MusicBand newBand = Ask.askMusicBand(console, collectionManager.getFreeId());
 
             if (newBand != null && newBand.validate()) {
@@ -49,7 +49,7 @@ public class Update extends Command {
                 return new ExecutionResponse("Обновлено!");
             } else {
                 return new ExecutionResponse(false,
-                        "Поля не валидны! Музыкальная группа не создана!");
+                        "Поля не валидны! Музыкальная группа не изменена!");
             }
         } catch (Ask.AskBreak e) {
             return new ExecutionResponse(false, "Отмена...");

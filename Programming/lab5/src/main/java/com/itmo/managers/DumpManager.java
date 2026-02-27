@@ -28,9 +28,9 @@ public class DumpManager {
     private final Console console;
 
     public DumpManager(String fileName, Console console) {
-        if (!(new File(fileName).exists())) {
-            fileName = "../" + fileName;
-        }
+//        if (!(new File(fileName).exists())) {
+//            fileName = "../" + fileName;
+//        }
         this.fileName = fileName;
         this.console = console;
     }
@@ -85,7 +85,8 @@ public class DumpManager {
                 System.exit(0);
             }
         } else {
-            console.printError("Аргумент командной строки с загрузочным файлом не найден!");
+            console.println("Укажите путь до считываемого файла в переменной окружения DATA_FILE");
+            System.exit(1);
         }
         return new HashSet<>();
     }

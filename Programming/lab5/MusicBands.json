@@ -1,38 +1,20 @@
 [
   {
-    "id": 6,
-    "name": "Nirvana",
+    "id": 7,
+    "name": "The Beatles",
     "coordinates": {
-      "x": -123,
-      "y": 89
+      "x": 4,
+      "y": 6
     },
     "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
-    "numberOfParticipants": 3,
-    "albumsCount": 3,
-    "genre": "GRUNGE",
+    "numberOfParticipants": 4,
+    "albumsCount": 17,
+    "genre": "ROCK",
     "bestAlbum": {
-      "name": "Nevermind",
-      "tracks": 13,
-      "length": 4218,
-      "sales": 3.0E7
-    }
-  },
-  {
-    "id": 11,
-    "name": "AC/DC",
-    "coordinates": {
-      "x": 156,
-      "y": 34
-    },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
-    "numberOfParticipants": 5,
-    "albumsCount": 18,
-    "genre": "HARD_ROCK",
-    "bestAlbum": {
-      "name": "Back in Black",
-      "tracks": 10,
-      "length": 2574,
-      "sales": 5.0E7
+      "name": "Abbey Road",
+      "tracks": 17,
+      "length": 3408,
+      "sales": 3.1E7
     }
   },
   {
@@ -54,21 +36,21 @@
     }
   },
   {
-    "id": 7,
-    "name": "The Beatles",
+    "id": 13,
+    "name": "The Rolling Stones",
     "coordinates": {
-      "x": 4,
-      "y": 6
+      "x": 67,
+      "y": -112
     },
-    "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
+    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
     "numberOfParticipants": 4,
-    "albumsCount": 17,
+    "albumsCount": 25,
     "genre": "ROCK",
     "bestAlbum": {
-      "name": "Abbey Road",
-      "tracks": 17,
-      "length": 3408,
-      "sales": 3.1E7
+      "name": "Sticky Fingers",
+      "tracks": 10,
+      "length": 2448,
+      "sales": 1.2E7
     }
   },
   {
@@ -126,21 +108,57 @@
     }
   },
   {
-    "id": 13,
-    "name": "The Rolling Stones",
+    "id": 11,
+    "name": "AC/DC",
     "coordinates": {
-      "x": 67,
-      "y": -112
+      "x": 156,
+      "y": 34
+    },
+    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
+    "numberOfParticipants": 5,
+    "albumsCount": 18,
+    "genre": "HARD_ROCK",
+    "bestAlbum": {
+      "name": "Back in Black",
+      "tracks": 10,
+      "length": 2574,
+      "sales": 5.0E7
+    }
+  },
+  {
+    "id": 16,
+    "name": "fsa",
+    "coordinates": {
+      "x": 4,
+      "y": 5
+    },
+    "creationDate": "2026-02-27T13:36:40.5639879+03:00[Europe/Moscow]",
+    "numberOfParticipants": null,
+    "albumsCount": 4342,
+    "genre": "ROCK",
+    "bestAlbum": {
+      "name": "dsf",
+      "tracks": 4234,
+      "length": 324,
+      "sales": 3432.0
+    }
+  },
+  {
+    "id": 12,
+    "name": "Red Hot Chili Peppers",
+    "coordinates": {
+      "x": -89,
+      "y": 201
     },
     "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
     "numberOfParticipants": 4,
-    "albumsCount": 25,
-    "genre": "ROCK",
+    "albumsCount": 11,
+    "genre": "FUNK_ROCK",
     "bestAlbum": {
-      "name": "Sticky Fingers",
-      "tracks": 10,
-      "length": 2448,
-      "sales": 1.2E7
+      "name": "Californication",
+      "tracks": 15,
+      "length": 4852,
+      "sales": 1.6E7
     }
   },
   {
@@ -162,21 +180,39 @@
     }
   },
   {
-    "id": 12,
-    "name": "Red Hot Chili Peppers",
+    "id": 6,
+    "name": "Nirvana",
     "coordinates": {
-      "x": -89,
-      "y": 201
+      "x": -123,
+      "y": 89
     },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
-    "numberOfParticipants": 4,
-    "albumsCount": 11,
+    "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
+    "numberOfParticipants": 3,
+    "albumsCount": 3,
+    "genre": "GRUNGE",
+    "bestAlbum": {
+      "name": "Nevermind",
+      "tracks": 13,
+      "length": 4218,
+      "sales": 3.0E7
+    }
+  },
+  {
+    "id": 15,
+    "name": "fs{name}{",
+    "coordinates": {
+      "x": 4,
+      "y": 4
+    },
+    "creationDate": "2026-02-27T12:58:10.714319+03:00[Europe/Moscow]",
+    "numberOfParticipants": 43,
+    "albumsCount": 35,
     "genre": "FUNK_ROCK",
     "bestAlbum": {
-      "name": "Californication",
-      "tracks": 15,
-      "length": 4852,
-      "sales": 1.6E7
+      "name": "sf|}",
+      "tracks": 111,
+      "length": 323,
+      "sales": 2424.0
     }
   }
 ]
