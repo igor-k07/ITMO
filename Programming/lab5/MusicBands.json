@@ -1,30 +1,12 @@
 [
   {
-    "id": 7,
-    "name": "The Beatles",
-    "coordinates": {
-      "x": 4,
-      "y": 6
-    },
-    "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
-    "numberOfParticipants": 4,
-    "albumsCount": 17,
-    "genre": "ROCK",
-    "bestAlbum": {
-      "name": "Abbey Road",
-      "tracks": 17,
-      "length": 3408,
-      "sales": 3.1E7
-    }
-  },
-  {
-    "id": 14,
+    "id": 5166,
     "name": "Guns N\u0027 Roses",
     "coordinates": {
       "x": 345,
       "y": 78
     },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
     "numberOfParticipants": 5,
     "albumsCount": 6,
     "genre": "HARD_ROCK",
@@ -36,121 +18,13 @@
     }
   },
   {
-    "id": 13,
-    "name": "The Rolling Stones",
-    "coordinates": {
-      "x": 67,
-      "y": -112
-    },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
-    "numberOfParticipants": 4,
-    "albumsCount": 25,
-    "genre": "ROCK",
-    "bestAlbum": {
-      "name": "Sticky Fingers",
-      "tracks": 10,
-      "length": 2448,
-      "sales": 1.2E7
-    }
-  },
-  {
-    "id": 5,
-    "name": "Queen",
-    "coordinates": {
-      "x": 12,
-      "y": -45
-    },
-    "creationDate": "2026-02-25T14:03:33.1250725+03:00[Europe/Moscow]",
-    "numberOfParticipants": 4,
-    "albumsCount": 15,
-    "genre": "ROCK",
-    "bestAlbum": {
-      "name": "A Night at the Opera",
-      "tracks": 12,
-      "length": 4332,
-      "sales": 6500000.0
-    }
-  },
-  {
-    "id": 9,
-    "name": "Pink Floyd",
-    "coordinates": {
-      "x": -56,
-      "y": 123
-    },
-    "creationDate": "2026-02-25T14:03:33.1270674+03:00[Europe/Moscow]",
-    "numberOfParticipants": 5,
-    "albumsCount": 14,
-    "genre": "PSYCHEDELIC_ROCK",
-    "bestAlbum": {
-      "name": "The Dark Side of the Moon",
-      "tracks": 10,
-      "length": 4316,
-      "sales": 4.5E7
-    }
-  },
-  {
-    "id": 10,
-    "name": "Metallica",
-    "coordinates": {
-      "x": 234,
-      "y": -67
-    },
-    "creationDate": "2026-02-25T14:03:33.1270674+03:00[Europe/Moscow]",
-    "numberOfParticipants": 4,
-    "albumsCount": 11,
-    "genre": "HEAVY_METAL",
-    "bestAlbum": {
-      "name": "Master of Puppets",
-      "tracks": 8,
-      "length": 3252,
-      "sales": 1.6E7
-    }
-  },
-  {
-    "id": 11,
-    "name": "AC/DC",
-    "coordinates": {
-      "x": 156,
-      "y": 34
-    },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
-    "numberOfParticipants": 5,
-    "albumsCount": 18,
-    "genre": "HARD_ROCK",
-    "bestAlbum": {
-      "name": "Back in Black",
-      "tracks": 10,
-      "length": 2574,
-      "sales": 5.0E7
-    }
-  },
-  {
-    "id": 16,
-    "name": "fsa",
-    "coordinates": {
-      "x": 4,
-      "y": 5
-    },
-    "creationDate": "2026-02-27T13:36:40.5639879+03:00[Europe/Moscow]",
-    "numberOfParticipants": null,
-    "albumsCount": 4342,
-    "genre": "ROCK",
-    "bestAlbum": {
-      "name": "dsf",
-      "tracks": 4234,
-      "length": 324,
-      "sales": 3432.0
-    }
-  },
-  {
-    "id": 12,
+    "id": 5164,
     "name": "Red Hot Chili Peppers",
     "coordinates": {
       "x": -89,
       "y": 201
     },
-    "creationDate": "2026-02-25T14:03:33.1280646+03:00[Europe/Moscow]",
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
     "numberOfParticipants": 4,
     "albumsCount": 11,
     "genre": "FUNK_ROCK",
@@ -162,13 +36,67 @@
     }
   },
   {
-    "id": 8,
+    "id": 5161,
+    "name": "Pink Floyd",
+    "coordinates": {
+      "x": -56,
+      "y": 123
+    },
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
+    "numberOfParticipants": 5,
+    "albumsCount": 14,
+    "genre": "PSYCHEDELIC_ROCK",
+    "bestAlbum": {
+      "name": "The Dark Side of the Moon",
+      "tracks": 10,
+      "length": 4316,
+      "sales": 4.5E7
+    }
+  },
+  {
+    "id": 5165,
+    "name": "The Rolling Stones",
+    "coordinates": {
+      "x": 67,
+      "y": -112
+    },
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
+    "numberOfParticipants": 4,
+    "albumsCount": 25,
+    "genre": "ROCK",
+    "bestAlbum": {
+      "name": "Sticky Fingers",
+      "tracks": 10,
+      "length": 2448,
+      "sales": 1.2E7
+    }
+  },
+  {
+    "id": 5159,
+    "name": "The Beatles",
+    "coordinates": {
+      "x": 4,
+      "y": 6
+    },
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
+    "numberOfParticipants": 4,
+    "albumsCount": 17,
+    "genre": "ROCK",
+    "bestAlbum": {
+      "name": "Abbey Road",
+      "tracks": 17,
+      "length": 3408,
+      "sales": 3.1E7
+    }
+  },
+  {
+    "id": 5160,
     "name": "Led Zeppelin",
     "coordinates": {
       "x": 78,
       "y": -23
     },
-    "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
     "numberOfParticipants": 4,
     "albumsCount": 8,
     "genre": "HARD_ROCK",
@@ -180,13 +108,49 @@
     }
   },
   {
-    "id": 6,
+    "id": 5162,
+    "name": "Metallica",
+    "coordinates": {
+      "x": 234,
+      "y": -67
+    },
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
+    "numberOfParticipants": 4,
+    "albumsCount": 11,
+    "genre": "HEAVY_METAL",
+    "bestAlbum": {
+      "name": "Master of Puppets",
+      "tracks": 8,
+      "length": 3252,
+      "sales": 1.6E7
+    }
+  },
+  {
+    "id": 5157,
+    "name": "Queen",
+    "coordinates": {
+      "x": 12,
+      "y": -45
+    },
+    "creationDate": "2026-02-28T14:45:53.134348+03:00[Europe/Moscow]",
+    "numberOfParticipants": 4,
+    "albumsCount": 15,
+    "genre": "ROCK",
+    "bestAlbum": {
+      "name": "A Night at the Opera",
+      "tracks": 12,
+      "length": 4332,
+      "sales": 6500000.0
+    }
+  },
+  {
+    "id": 5158,
     "name": "Nirvana",
     "coordinates": {
       "x": -123,
       "y": 89
     },
-    "creationDate": "2026-02-25T14:03:33.1260715+03:00[Europe/Moscow]",
+    "creationDate": "2026-02-28T14:45:53.134348+03:00[Europe/Moscow]",
     "numberOfParticipants": 3,
     "albumsCount": 3,
     "genre": "GRUNGE",
@@ -198,21 +162,21 @@
     }
   },
   {
-    "id": 15,
-    "name": "fs{name}{",
+    "id": 5163,
+    "name": "AC/DC",
     "coordinates": {
-      "x": 4,
-      "y": 4
+      "x": 156,
+      "y": 34
     },
-    "creationDate": "2026-02-27T12:58:10.714319+03:00[Europe/Moscow]",
-    "numberOfParticipants": 43,
-    "albumsCount": 35,
-    "genre": "FUNK_ROCK",
+    "creationDate": "2026-02-28T14:45:53.1353454+03:00[Europe/Moscow]",
+    "numberOfParticipants": 5,
+    "albumsCount": 18,
+    "genre": "HARD_ROCK",
     "bestAlbum": {
-      "name": "sf|}",
-      "tracks": 111,
-      "length": 323,
-      "sales": 2424.0
+      "name": "Back in Black",
+      "tracks": 10,
+      "length": 2574,
+      "sales": 5.0E7
     }
   }
 ]

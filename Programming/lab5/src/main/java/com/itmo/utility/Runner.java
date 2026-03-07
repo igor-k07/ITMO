@@ -62,7 +62,7 @@ public class Runner {
                 if (lenghtRecursion < 0) {
                     console.selectConsoleScanner();
                     console.println("Была замечена рекурсия! " +
-                            "Введите максимальную глубину рекурсии (0...500");
+                            "Введите максимальную глубину рекурсии (0...500)");
                     while (lenghtRecursion < 0 || lenghtRecursion > 500) {
                         try {
                             console.print("> ");
@@ -116,7 +116,6 @@ public class Runner {
                 if (userCommand[0].equals("execute_script")) {
                     needLaunch = checkRecursion(userCommand[1], scriptScanner);
                 }
-
                 commandStatus = needLaunch ? launchCommand(userCommand) :
                         new ExecutionResponse("Превышена максимальная глубина рекурсии");
                 if (userCommand[0].equals("execute_script")) {

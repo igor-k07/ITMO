@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Rocket {
     private FlightState state = FlightState.ON_EARTH;
     private final Engine engine = new Engine();
-    public List<Character> characters = new ArrayList<>;
+    public List<Character> characters = new ArrayList<>();
 
     public void startFlight(){
         state = FlightState.IN_FLIGHT;

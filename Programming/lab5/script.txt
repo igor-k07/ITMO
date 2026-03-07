@@ -122,3 +122,6 @@ Appetite for Destruction
 30000000.0
 
 save
+
+execute_script script.txt
+show
