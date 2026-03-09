@@ -3,6 +3,7 @@ package com.itmo.managers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.itmo.utility.abstracted.interfaces.Console;
 import com.itmo.models.MusicBand;
@@ -10,8 +11,8 @@ import com.itmo.utility.adapters.ZonedDateTimeAdapter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
@@ -54,22 +55,44 @@ public class DumpManager {
                  var bufferedReader = new BufferedReader(inputStreamReader)) {
 
                 var collectionType = new TypeToken<HashSet<MusicBand>>(){}.getType();
+                var objectType = new TypeToken<MusicBand>(){}.getType();
                 var jsonString = new StringBuilder();
 
                 String line;
+                ArrayList<String> objects = new ArrayList<>();
+                int count = 0;
                 while ((line = bufferedReader.readLine()) != null) {
                     line = line.trim();
-                    if (!line.equals("")) {
+                    if (line.contains("{")) {
+                        count += 1;
+                    } else if (line.contains("}")) {
+                        count -= 1;
+                    }
+                    if ((!line.equals("") & !line.equals("[") & !line.equals("]"))) {
                         jsonString.append(line);
+                        if (count == 0) {
+                            if (jsonString.charAt(jsonString.length() - 1) == ',') {
+                                jsonString.deleteCharAt(jsonString.length() - 1);
+                            }
+                            objects.add(jsonString.toString());
+                            jsonString.setLength(0);
+                        }
                     }
                 }
 
-                if (jsonString.length() == 0) {
+
+                if (objects.isEmpty()) {
                     jsonString = new StringBuilder("[]");
                 }
 
-                HashSet<MusicBand> collection =
-                        gson.fromJson(jsonString.toString(), collectionType);
+
+                HashSet<MusicBand> collection = new HashSet<>();
+                for (String band : objects) {
+                    try {
+                        collection.add(gson.fromJson(band, objectType));
+                    } catch (JsonSyntaxException e) {console.printError(
+                            "В загруженом файле не все поля валидны, некоторые элементы могут быть утеряны");}
+                }
 
                 console.println("Коллекция успешно загружена!");
                 return collection;
