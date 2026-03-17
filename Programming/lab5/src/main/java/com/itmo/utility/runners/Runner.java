@@ -2,6 +2,7 @@ package com.itmo.utility;
 
 import com.itmo.managers.CommandManager;
 import com.itmo.utility.abstracted.interfaces.Console;
+import com.itmo.utility.requests.Request;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -173,5 +174,11 @@ public class Runner {
                 return command.apply(userCommand);
             }
         }
+    }
+
+    public ExecutionResponse makeRequest(String commandName, List<String> args) {
+        Request request = buildRequest(commandName, args);
+
+        Response<?> response = proccesRequest(request);
     }
 }
