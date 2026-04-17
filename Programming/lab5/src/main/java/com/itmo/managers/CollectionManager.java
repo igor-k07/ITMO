@@ -1,106 +1,149 @@
 package com.itmo.managers;
 
-import com.itmo.models.MusicBand;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.Status;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
 
-public class CollectionManager {
-    private int currentId = 0;
-    private Map<Integer, MusicBand> musicBand = new HashMap<>();
-    private Collection<MusicBand> collection = new HashSet<MusicBand>();
+// Менеджер для работы с коллекцией типа HashSet
+
+public class HashSetCollectionManager<T extends Element> {
+    private Collection<T> collection = new HashSet<>();
     private LocalDateTime lastInitTime;
-    private LocalDateTime lastsaveTime;
-    private final DumpManager dumpManager;
+    private LocalDateTime lastSaveTime = LocalDateTime.now();
+    private int maxId;
 
-    public CollectionManager(DumpManager dumpManager){
-        this.lastsaveTime = null;
-        this.lastsaveTime = null;
-        this.dumpManager = dumpManager;
+    public HashSetCollectionManager(Collection<T> collection) {
+        this.collection = new HashSet<>();
+        if (collection != null) this.collection.addAll(collection);
+        this.lastInitTime = LocalDateTime.now();
+        updateMaxId();
     }
 
-    public LocalDateTime getLastInitTime() {
-        return lastInitTime;
+
+    public Status saveCollection(DumpManager dumpManager){
+        try {
+            dumpManager.writeCollectionToFile(collection);
+            this.lastSaveTime = LocalDateTime.now();
+            return Status.OK;
+        } catch (Exception e) {
+            return Status.ERROR;
+        }
     }
 
-    public LocalDateTime getLastsaveTime(){
-        return lastsaveTime;
+    private void updateMaxId() {
+        maxId = collection
+            .stream().filter(Objects::nonNull)
+            .map(T::getId)
+            .mapToInt(Integer::intValue).max().orElse(0);
     }
 
-    public Collection<MusicBand> getCollection() {
+
+    public Status clearCollection() {
+        try {
+            collection.clear();
+            return Status.OK;
+        } catch (Exception e) {
+            return Status.ERROR;
+        }
+
+    }
+
+    public Status removeFromCollection(T element) {
+        try {
+            collection.remove(element);
+            updateMaxId();
+            return Status.OK;
+        } catch (Exception e) {
+            return Status.ERROR;
+        }
+
+    }
+
+    public Status addToCollection(T element) {
+        try {
+            element.setId(maxId+1);
+            collection.add(element);
+            updateMaxId();
+            return Status.OK;
+        } catch (Exception e) {
+            return Status.ERROR;
+        }
+    }
+
+    public Status updateById(int id, T newElement) {
+        newElement.setId(id);
+        Status status = Status.ERROR;
+        Iterator<T> iterator = this.collection.iterator();
+        while (iterator.hasNext()) {
+            T route = iterator.next();
+            if (route.getId() == id) {
+                iterator.remove();
+                this.collection.add(newElement);
+                status = Status.OK;
+                break;
+            }
+        }
+        updateMaxId();
+        return status;
+    }
+
+
+    public boolean checkExist(int id) {
+        for (Element element : collection) {
+            if (element.getId() == id) return true;
+        }
+        return false;
+    }
+
+    public T getById(int id) {
+        for (T element : collection) {
+        if (element.getId() == id) return element;
+        }
+        return null;
+    }
+
+    public T getByValue(T targetElement) {
+        for (T element : collection) {
+            if (element.equals(targetElement)) return element;
+        }
+        return null;
+    }
+
+    public Collection<T> getCollection() {
         return collection;
     }
 
-    public int getSizeCollection() {
+    public String getCollectionType() {
+        return collection.getClass().getName();
+    }
+
+    public int getCollectionSize() {
         return collection.size();
     }
 
-    public MusicBand byId(int id) {
-        return collection.stream()
-                .filter(band -> band.getId() == id)
-                .findFirst()
-                .orElse(null);
+    public LocalDateTime getLastInitTime() {
+        return this.lastInitTime;
     }
 
-    public boolean isContain(MusicBand band) {
-        return band == null || collection.contains(band);
+    public LocalDateTime getLastSaveTime() {
+        return this.lastSaveTime;
     }
-
-    public int getFreeId() {
-        while (byId(++currentId) != null);
-        return currentId;
-    }
-
-    public boolean add(MusicBand band) {
-        return collection.add(band);
-    }
-
-
-    public boolean remove(int id) {
-        return collection.removeIf(band -> band.getId() == id);
-    }
-
-    public boolean clearCollection() {
-        if (collection.isEmpty()) {
-            return false;
-        }
-        collection.clear();
-        return true;
-    }
-
-    public boolean init() {
-        clearCollection();
-        collection = dumpManager.readCollection();
-
-        lastInitTime = LocalDateTime.now();
-
-        boolean hasDuplicateIds = collection.stream()
-                .mapToInt(MusicBand::getId)
-                .distinct()
-                .count() != getSizeCollection();
-
-        if (hasDuplicateIds) {
-            clearCollection();
-            return false;
-        }
-
-        currentId = collection.stream().mapToInt(MusicBand::getId).max().orElse(0);
-        return true;
-    }
-
-    public void saveCollection() {
-        dumpManager.writeCollection(collection);
-        lastsaveTime = LocalDateTime.now();
-    }
-
 
     @Override
     public String toString() {
-        return collection.isEmpty() ? "Коллекция пуста" :
-                collection.stream()
-                        .map(MusicBand::toString)
-                        .collect(Collectors.joining("\n"));
+        if (collection.isEmpty()) {
+            return "Коллекция пуста";
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (T entity: collection) {
+            result.append(entity + "\n\n");
+        }
+        return result.toString();
     }
 }

@@ -1,116 +1,121 @@
 package com.itmo.managers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
-import com.itmo.utility.abstracted.interfaces.Console;
+import com.google.gson.*;
+import com.itmo.managers.interfaces.FileManager;
+import com.itmo.models.abstracts.Element;
 import com.itmo.models.MusicBand;
-import com.itmo.utility.adapters.ZonedDateTimeAdapter;
+import com.itmo.util.ZonedDateTimeAdapter;
+import com.itmo.util.exceptions.LoadException;
+import com.itmo.util.exceptions.WriteException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.NoSuchElementException;
+import java.util.List;
 
+// Менеджер для сохранения и загрузки коллекции из файла JSON
 
-public class DumpManager {
-    private final Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .serializeNulls()
-            .registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter())
-            .create();
-
+public class JSONManager implements FileManager {
     private final String fileName;
-    private final Console console;
 
-    public DumpManager(String fileName, Console console) {
-//        if (!(new File(fileName).exists())) {
-//            fileName = "../" + fileName;
-//        }
+    private final Gson writeGson = new GsonBuilder()
+        .setPrettyPrinting()
+        .serializeNulls()
+        .registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter())
+        .create();
+
+    private final Gson readGson = new GsonBuilder()
+        .setLenient()
+        .registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter())
+        .create();
+
+    public JSONManager(String fileName) {
         this.fileName = fileName;
-        this.console = console;
     }
-
-    public void writeCollection(Collection<MusicBand> collection) {
-        try (BufferedOutputStream bos =
-                     new BufferedOutputStream(new FileOutputStream(fileName))) {
-            String json = gson.toJson(collection);
-            bos.write(json.getBytes(StandardCharsets.UTF_8));
-            console.println("Коллекция успешно сохранена в файл!");
-        } catch (IOException e) {
-            console.printError("Загрузочный файл не может быть открыт!");
+    
+    public Collection<Element> readCollectionFromFile() throws LoadException {
+        if (fileName == null || fileName.isEmpty()) {
+            return new ArrayList<>();
         }
-    }
+        
+        File file = new File(fileName);
+        if (!file.exists()) {
+            throw new LoadException("Файл не существует");
+        }
+        if (!file.canRead()) {
+            throw new SecurityException("Нет прав на чтение: " + file.getAbsolutePath());
+        }
 
-    public Collection<MusicBand> readCollection() {
-        if (fileName != null && !fileName.isEmpty()) {
-            try (var fileInputStream = new FileInputStream(fileName);
-                 var inputStreamReader = new InputStreamReader(fileInputStream,
-                         StandardCharsets.UTF_8);
-                 var bufferedReader = new BufferedReader(inputStreamReader)) {
-
-                var collectionType = new TypeToken<HashSet<MusicBand>>(){}.getType();
-                var objectType = new TypeToken<MusicBand>(){}.getType();
-                var jsonString = new StringBuilder();
-
-                String line;
-                ArrayList<String> objects = new ArrayList<>();
-                int count = 0;
-                while ((line = bufferedReader.readLine()) != null) {
-                    line = line.trim();
-                    if (line.contains("{")) {
-                        count += 1;
-                    } else if (line.contains("}")) {
-                        count -= 1;
-                    }
-                    if ((!line.equals("") & !line.equals("[") & !line.equals("]"))) {
-                        jsonString.append(line);
-                        if (count == 0) {
-                            if (jsonString.charAt(jsonString.length() - 1) == ',') {
-                                jsonString.deleteCharAt(jsonString.length() - 1);
-                            }
-                            objects.add(jsonString.toString());
-                            jsonString.setLength(0);
-                        }
-                    }
-                }
-
-
-                if (objects.isEmpty()) {
-                    jsonString = new StringBuilder("[]");
-                }
-
-
-                HashSet<MusicBand> collection = new HashSet<>();
-                for (String band : objects) {
-                    try {
-                        collection.add(gson.fromJson(band, objectType));
-                    } catch (JsonSyntaxException e) {console.printError(
-                            "В загруженом файле не все поля валидны, некоторые элементы могут быть утеряны");}
-                }
-
-                console.println("Коллекция успешно загружена!");
-                return collection;
-
-            } catch (FileNotFoundException e) {
-                console.printError("Загрузочный файл не найден!");
-            } catch (NoSuchElementException e) {
-                console.printError("Загрузочный файл пуст!");
-            } catch (JsonParseException e) {
-                console.printError("В загрузочном файле не обнаружена необходимая коллекция!");
-            } catch (IllegalStateException | IOException e) {
-                console.printError("Непредвиденная ошибка!");
-                System.exit(0);
+        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
+            StringBuilder jsonString = readFileContent(reader);
+            if (jsonString.length() == 0) {
+                jsonString = new StringBuilder("[]");
             }
-        } else {
-            console.println("Укажите путь до считываемого файла в переменной окружения DATA_FILE");
-            System.exit(1);
+            return parseValidBands(jsonString.toString());
+
+        } catch (IOException e) {
+            throw new LoadException("Не удалось прочитать файл: " + e.getMessage());
+        } catch (SecurityException e) {
+            throw new LoadException(e.getMessage());
         }
-        return new HashSet<>();
+    }
+    private StringBuilder readFileContent(InputStreamReader reader) throws IOException {
+        StringBuilder jsonString = new StringBuilder();
+        char[] buffer = new char[4096];
+        int read;
+        while ((read = reader.read(buffer)) != -1) {
+            jsonString.append(buffer, 0, read);
+        }
+        return jsonString;
+    }
+
+    private Collection<Element> parseValidBands(String jsonString) {
+        try {
+            JsonElement jsonArray = JsonParser.parseString(jsonString);
+            if (!jsonArray.isJsonArray()) {
+                return new ArrayList<>();
+            }
+
+            List<Element> valid = new ArrayList<>();
+            for (JsonElement element : jsonArray.getAsJsonArray()) {
+                try {
+                    MusicBand band = readGson.fromJson(element, MusicBand.class);
+                    if (band != null && band.validate()) {
+                        valid.add(band);
+                    }
+                } catch (Exception e) {}
+            }
+
+            int maxId = valid.stream()
+                .map(e -> ((MusicBand)e).getId())
+                .mapToInt(Integer::intValue)
+                .max().orElse(0);
+
+            for (Element e : valid) {
+                MusicBand band = (MusicBand) e;
+                if (band.getId() == 0) {
+                    maxId++;
+                    band.setId(maxId);
+                }
+            }
+
+            return valid;
+        } catch (JsonParseException e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public void writeCollectionToFile(Collection<? extends Element> collection) throws WriteException {
+        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(fileName))) {
+            byte[] bytes = writeGson.toJson(collection).getBytes(StandardCharsets.UTF_8);
+            out.write(bytes);
+            out.flush();
+        } catch (IOException exception) {
+            throw new WriteException("Не удалось записать коллекцию в файл");
+        }
     }
 }
+
+

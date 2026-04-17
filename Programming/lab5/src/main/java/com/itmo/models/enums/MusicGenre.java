@@ -1,22 +1,17 @@
-package com.itmo.models.enums;
+package com.itmo.models;
+
+// Жанры музыки
 
 public enum MusicGenre {
     HIP_HOP,
     BLUES,
-    GRUNGE,
-    HEAVY_METAL,
-    ROCK,
     POST_ROCK,
+    ROCK,
     HARD_ROCK,
+    FUNK_ROCK,
     PSYCHEDELIC_ROCK,
-    FUNK_ROCK;
-
-
-    public static String names() {
-        StringBuilder nameList = new StringBuilder();
-        for (var genreType: values()) {
-            nameList.append("\n").append(genreType.name()).append(", ");
-        }
-        return nameList.substring(0, nameList.length()-2);
-    }
+    HEAVY_METAL,
+    GRUNGE;
 }
+
+
