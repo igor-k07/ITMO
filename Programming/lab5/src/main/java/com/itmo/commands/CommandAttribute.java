@@ -1,13 +1,10 @@
-package commands;
+package com.itmo.commands;
 
-import commands.interfaces.Describable;
-import util.transfer.request.Request;
+import com.itmo.commands.interfaces.Describable;
+import com.itmo.util.request.Request;
 
+// Класс для хранения атрибутов команды
 
-/**
- * Класс для хранения атрибутов команды
- * @author Septyq
- */
 public class CommandAttribute implements Describable {
     private final String name;
     private final String description;
@@ -31,3 +28,5 @@ public class CommandAttribute implements Describable {
         return argsType;
     }
 }
+
+

@@ -1,21 +1,23 @@
-package models;
+package com.itmo.models;
+
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.enums.MusicGenre;
 
 import java.time.ZonedDateTime;
 import java.util.Comparator;
 import java.util.Objects;
 
-/**
- * Модель музыкальной группы.
- */
-public class MusicBand extends Entity {
-    private Integer id; // генерируется автоматически
-    private String name; // не null, не пустая
-    private Coordinates coordinates; // не null
-    private ZonedDateTime creationDate; // генерируется автоматически
-    private Long numberOfParticipants; // может быть null, >0
-    private Long albumsCount; // не null, >0
-    private MusicGenre genre; // не null
-    private Album bestAlbum; // не null
+// Модель музыкальной группы
+
+public class MusicBand extends Element {
+    private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private String name; //Поле не может быть null, Строка не может быть пустой
+    private Coordinates coordinates; //Поле не может быть null
+    private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private Long numberOfParticipants; //Поле может быть null, Значение поля должно быть больше 0
+    private Long albumsCount; //Поле не может быть null, Значение поля должно быть больше 0
+    private MusicGenre genre; //Поле не может быть null
+    private Album bestAlbum; //Поле не может быть null
 
     public MusicBand() {
         this.creationDate = ZonedDateTime.now();
@@ -63,9 +65,9 @@ public class MusicBand extends Entity {
     }
 
     @Override
-    public void update(Entity newEntity) {
-        if (!(newEntity instanceof MusicBand)) return;
-        MusicBand other = (MusicBand) newEntity;
+    public void update(Element newElement) {
+        if (!(newElement instanceof MusicBand)) return;
+        MusicBand other = (MusicBand) newElement;
         this.name = other.name;
         this.coordinates = other.coordinates;
         this.numberOfParticipants = other.numberOfParticipants;
@@ -90,19 +92,21 @@ public class MusicBand extends Entity {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("id=%d\n", getId()));
-        sb.append(String.format("creationDate=%s\n", creationDate));
-        sb.append(String.format("name=%s\n", name));
-        sb.append(String.format("coordinates=%s\n", coordinates));
-        sb.append(String.format("numberOfParticipants=%s\n", numberOfParticipants));
-        sb.append(String.format("albumsCount=%s\n", albumsCount));
-        sb.append(String.format("genre=%s\n", genre));
-        sb.append(String.format("bestAlbum=%s\n", bestAlbum));
+        sb.append(String.format("идентификатор=%d\n", getId()));
+        sb.append(String.format("дата создания=%s\n", creationDate));
+        sb.append(String.format("название=%s\n", name));
+        sb.append(String.format("координаты=%s\n", coordinates));
+        sb.append(String.format("число участников=%s\n", numberOfParticipants));
+        sb.append(String.format("количество альбомов=%s\n", albumsCount));
+        sb.append(String.format("жанр=%s\n", genre));
+        sb.append(String.format("лучший альбом=%s\n", bestAlbum));
         return sb.toString();
     }
 
     @Override
-    protected Comparator<Entity> getComparator() {
-        return Comparator.comparing((Entity e) -> ((MusicBand)e).getName(), Comparator.nullsLast(String::compareTo));
+    protected Comparator<Element> getComparator() {
+        return Comparator.comparing((Element e) -> ((MusicBand)e).getName(), Comparator.nullsLast(String::compareTo));
     }
 }
+
+

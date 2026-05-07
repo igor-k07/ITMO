@@ -1,13 +1,10 @@
-package util.console;
+package com.itmo.util.console;
 
 import java.util.Scanner;
 
+// Реализация консоли для ввода-вывода данных
 
-/**
- * Консоль воода-вывода.
- * @author Septyq
- */
-public class IOConsole implements Console {
+public class StandardConsole implements Console {
     private Scanner userScanner;
     private boolean fileMode = false;
     private final String promptSymbol = "$ ";
@@ -42,7 +39,7 @@ public class IOConsole implements Console {
     }
 
     public void printError(Object obj) {
-        System.out.println("[Error]: " + obj.toString());
+        System.out.println("[ОШИБКА] " + obj.toString());
     }
 
     public void printPromptSymbol() {

@@ -11,13 +11,13 @@ import java.util.Objects;
 
 // Менеджер для работы с коллекцией типа HashSet
 
-public class HashSetCollectionManager<T extends Element> {
+public class CollectionManager<T extends Element> {
     private Collection<T> collection = new HashSet<>();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime = LocalDateTime.now();
     private int maxId;
 
-    public HashSetCollectionManager(Collection<T> collection) {
+    public CollectionManager(Collection<T> collection) {
         this.collection = new HashSet<>();
         if (collection != null) this.collection.addAll(collection);
         this.lastInitTime = LocalDateTime.now();

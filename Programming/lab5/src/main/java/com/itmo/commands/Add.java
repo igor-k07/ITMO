@@ -1,31 +1,30 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.request.ElementRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import managers.CollectionManager;
-import models.Entity;
-import util.transfer.request.standart.EntityRequest;
-import util.transfer.response.Response;
 
+// Добавляет новый элемент в коллекцию
+public class Add extends Command<ElementRequest> {
+    private final CollectionManager<Element> collectionManager;
 
-/**
- * Команда 'add'. Добавляет новый элемент в коллекцию.
- * @author Septyq
- */
-public class Add extends Command<EntityRequest> {
-    private final CollectionManager<Entity> collectionManager;
-
-    public Add(CollectionManager<Entity> collectionManager) {
+    public Add(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
-            "add {element}", 
+            "add {элемент}", 
             "добавить новый элемент в коллекцию", 
-            EntityRequest.class
+            ElementRequest.class
             ));
         this.collectionManager = collectionManager;
     }
     
-    public Response<?> execute(EntityRequest request) {
-        collectionManager.addToCollection(request.getEntity());
-        return new Response<>(List.of("element added"));
+    public Response<?> execute(ElementRequest request) {
+        collectionManager.addToCollection(request.getElement());
+        return new Response<>(List.of("Элемент добавлен"));
     }
 }
+
+

@@ -1,15 +1,13 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.commands.interfaces.Executable;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.Objects;
 
-import commands.interfaces.Executable;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
-/**
- * Абстрактная класс для реализации выполнения команды
- * @param <T> тип запроса
- * @author Septyq
- */
+// Абстрактный класс для реализации выполнения команды
+
 public abstract class Command<T extends StandartRequest> implements Executable<T> {
     private final CommandAttribute commandAttribute;
 
@@ -21,7 +19,14 @@ public abstract class Command<T extends StandartRequest> implements Executable<T
         return commandAttribute;
     }
 
-    public abstract Response<?> execute(T request);
+//    public Response<?> execute(T request) {
+////        isValid(request);
+//        return executeInternal(request);
+//    }
+
+//    protected abstract Response<?> isValid(T request);
+
+//    protected abstract Response<?> executeInternal(T request);
 
     @Override
     public boolean equals(Object o) {
@@ -39,10 +44,12 @@ public abstract class Command<T extends StandartRequest> implements Executable<T
 
     @Override
     public String toString() {
-        return "Command{" +
-        "name='" + commandAttribute.getName() + '\'' +
-        ", description='" + commandAttribute.getDescription() + '\'' +
+        return "Команда{" +
+        "имя='" + commandAttribute.getName() + '\'' +
+        ", описание='" + commandAttribute.getDescription() + '\'' +
         '}';
     }
 
 }
+
+

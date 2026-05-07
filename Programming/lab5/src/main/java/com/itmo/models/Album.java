@@ -1,16 +1,16 @@
-package models;
+package com.itmo.models;
+
+import com.itmo.util.Validatable;
 
 import java.util.Objects;
-import util.Validatable;
 
-/**
- * Альбом музыкальной группы.
- */
+// Модель для альбома музыкальной группы
+
 public class Album implements Validatable {
-    private String name; // не null, не пустая
-    private Long tracks; // может быть null, >0
-    private Integer length; // может быть null, >0
-    private Double sales; // не null, >0
+    private String name; // Поле не может быть null, Строка не может быть пустой
+    private Long tracks; // Поле может быть null, Значение поля должно быть больше 0
+    private Integer length; // Поле может быть null, Значение поля должно быть больше 0
+    private Double sales; // Поле не может быть null, Значение поля должно быть больше 0
 
     public Album() {}
 
@@ -50,6 +50,8 @@ public class Album implements Validatable {
 
     @Override
     public String toString() {
-        return String.format("Album{name='%s', tracks=%s, length=%s, sales=%s}", name, tracks, length, sales);
+        return String.format("Альбом{название='%s', треки=%s, длительность=%s, продажи=%s}", name, tracks, length, sales);
     }
 }
+
+

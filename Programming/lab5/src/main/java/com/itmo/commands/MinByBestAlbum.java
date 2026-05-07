@@ -1,20 +1,22 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.MusicBand;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import managers.CollectionManager;
-import models.Entity;
-import models.MusicBand;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+// Выводит элемент с минимальными продажами лучшего альбома
 
 public class MinByBestAlbum extends Command<StandartRequest> {
-    private final CollectionManager<Entity> collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public MinByBestAlbum(CollectionManager<Entity> collectionManager) {
-        super(new CommandAttribute("min_by_best_album", "вывести любой объект с минимальным bestAlbum", StandartRequest.class));
+    public MinByBestAlbum(CollectionManager<Element> collectionManager) {
+        super(new CommandAttribute("min_by_best_album", "вывести любой объект с минимальными продажами лучшего альбома", StandartRequest.class));
         this.collectionManager = collectionManager;
     }
 
@@ -27,7 +29,7 @@ public class MinByBestAlbum extends Command<StandartRequest> {
         if (opt.isPresent()) {
             return new Response<>(List.of(opt.get()));
         } else {
-            return new Response<>(List.of("Collection is empty or no album data"));
+            return new Response<>(List.of("Коллекция пуста или отсутствуют данные об альбоме"));
         }
     }
 }

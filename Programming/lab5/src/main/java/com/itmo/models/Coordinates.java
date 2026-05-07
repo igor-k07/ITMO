@@ -1,17 +1,15 @@
-package models;
+package com.itmo.models;
+
+import com.itmo.util.Validatable;
 
 import java.util.Objects;
-import util.Validatable;
 
 
-/**
- * Класс координат.
- * x: long
- * y: Long, не может быть null, максимальное значение 996
- */
+// Модель для координат
+
 public class Coordinates implements Validatable {
     private final long x;
-    private final Long y;
+    private final Long y; // Максимальное значение поля: 996, Поле не может быть null
 
     public Coordinates(long x, Long y) {
         this.x = x;
@@ -41,6 +39,8 @@ public class Coordinates implements Validatable {
 
     @Override
     public String toString() {
-        return String.format("(x=%d, y=%d)", x, y);
+        return String.format("(координата X=%d, координата Y=%d)", x, y);
     }
 }
+
+

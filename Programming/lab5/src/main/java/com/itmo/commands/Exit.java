@@ -1,14 +1,12 @@
-package commands;
+package com.itmo.commands;
 
-import util.Status;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+import com.itmo.util.Status;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 
-/**
- * Команда 'exit'. Завершиет программу (без сохранения в файл).
- * @author Septyq
- */
+// Завершает программу (без сохранения в файл)
+
 public class Exit extends Command<StandartRequest> {
     public Exit() {
         super(new CommandAttribute(
@@ -22,3 +20,5 @@ public class Exit extends Command<StandartRequest> {
         return new Response<>(Status.EXIT);
     }
 }
+
+

@@ -1,4 +1,4 @@
-package com.itmo.util.transfer.response;
+package com.itmo.util.response;
 
 import com.itmo.util.Status;
 

@@ -1,15 +1,16 @@
-package commands;
+package com.itmo.commands;
 
-import util.transfer.request.standart.StringRequest;
-import util.transfer.response.Response;
+import com.itmo.util.request.StringRequest;
+import com.itmo.util.response.Response;
+
+// Исполняет скрипт из файла
 
 public class ExecuteScript extends Command<StringRequest> {
     public ExecuteScript() {
-        super(new CommandAttribute("execute_script file_name", "исполнить скрипт из файла", StringRequest.class));
+        super(new CommandAttribute("execute_script имя_файла", "исполнить скрипт из файла", StringRequest.class));
     }
 
     public Response<?> execute(StringRequest request) {
-        // execution of scripts is handled locally in LocalRuntime; remote returns OK
         return new Response<>();
     }
 }

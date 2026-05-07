@@ -1,23 +1,22 @@
-package com.itmo.util.forms;
+package com.itmo.util.asks;
 
 import com.itmo.models.Album;
 import com.itmo.models.Coordinates;
 import com.itmo.models.MusicBand;
-import com.itmo.models.MusicGenre;
-import com.itmo.util.console.IOConsole;
-import com.itmo.util.exceptions.InvalidFormException;
+import com.itmo.models.enums.MusicGenre;
+import com.itmo.util.console.StandardConsole;
+import com.itmo.util.exceptions.InvalidAskException;
 import com.itmo.util.exceptions.ScriptSyntaxException;
 
 import java.util.NoSuchElementException;
 
-/**
- * Форма для создания MusicBand через консоль.
- */
-public class MusicBandForm extends Form<MusicBand> {
-    private final IOConsole console;
+// Запрос на ввод данных для создания объекта MusicBand
+
+public class AskMusicBand extends Ask<MusicBand> {
+    private final StandardConsole console;
     private final boolean fileMode;
 
-    public MusicBandForm(IOConsole console) {
+    public AskMusicBand(StandardConsole console) {
         this.console = console;
         this.fileMode = console.fileMode();
     }
@@ -33,9 +32,9 @@ public class MusicBandForm extends Form<MusicBand> {
             Album bestAlbum = new AskAlbum(console).build();
 
             MusicBand band = new MusicBand(name, coordinates, numberOfParticipants, albumsCount, genre, bestAlbum);
-            if (!band.validate()) throw new InvalidFormException("Final MusicBand validation failed");
+            if (!band.validate()) throw new InvalidAskException("Финальная валидация музыкальной группы не пройдена");
             return band;
-        } catch (InvalidFormException | ScriptSyntaxException e) {
+        } catch (InvalidAskException | ScriptSyntaxException e) {
             console.printError(e.getMessage());
             return null;
         }
@@ -46,18 +45,18 @@ public class MusicBandForm extends Form<MusicBand> {
         boolean asked = false;
         do {
             try {
-                console.print("Enter band name: ");
+                console.print("Введите название группы: ");
                 name = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(name);
-                if (name.equals("")) throw new ScriptSyntaxException("Invalid name");
+                if (name.equals("")) throw new ScriptSyntaxException("Некорректное название");
                 asked = true;
                 break;
             } catch (NoSuchElementException e) {
                 if (fileMode) {
                     asked = true;
-                    throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
+                    throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
                 } else {
-                    console.printError("Name not recognized, enter it again");
+                    console.printError("Название не распознано, введите еще раз");
                 }
             }
         } while (!asked);
@@ -68,14 +67,14 @@ public class MusicBandForm extends Form<MusicBand> {
     private Long askNumberOfParticipants() throws ScriptSyntaxException {
         do {
             try {
-                console.print("Enter numberOfParticipants (Long) or empty for null: ");
+                console.print("Введите количество участников (Long) или оставьте пустым: ");
                 String s = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(s);
                 if (s.isEmpty()) return null;
                 return Long.parseLong(s);
             } catch (NoSuchElementException | NumberFormatException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("Value not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Значение не распознано, введите еще раз");
             }
         } while (true);
     }
@@ -83,14 +82,14 @@ public class MusicBandForm extends Form<MusicBand> {
     private Long askAlbumsCount() throws ScriptSyntaxException {
         do {
             try {
-                console.print("Enter albumsCount (Long): ");
+                console.print("Введите количество альбомов (Long): ");
                 String s = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(s);
                 Long v = Long.parseLong(s);
                 return v;
             } catch (NoSuchElementException | NumberFormatException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("albumsCount not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Количество альбомов не распознано, введите еще раз");
             }
         } while (true);
     }
@@ -98,7 +97,7 @@ public class MusicBandForm extends Form<MusicBand> {
     private MusicGenre askGenre() throws ScriptSyntaxException {
         do {
             try {
-                console.print("Enter genre (one of: ");
+                console.print("Введите жанр (один из: ");
                 for (MusicGenre g : MusicGenre.values()) {
                     console.print(g.name() + " ");
                 }
@@ -107,9 +106,11 @@ public class MusicBandForm extends Form<MusicBand> {
                 if (fileMode) console.println(s);
                 return MusicGenre.valueOf(s);
             } catch (IllegalArgumentException | NoSuchElementException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("Genre not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Жанр не распознан, введите еще раз");
             }
         } while (true);
     }
 }
+
+

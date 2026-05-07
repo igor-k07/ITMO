@@ -1,9 +1,9 @@
-package util;
+package com.itmo.util;
 
-/**
- * Определяет классы с возможностью валидации.
- * @author Septyq
- */
+// Интерфейс, определяющий классы с возможностью валидации
+
 public interface Validatable {
     boolean validate();
 }
+
+

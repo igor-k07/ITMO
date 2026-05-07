@@ -1,11 +1,11 @@
-package util;
+package com.itmo.util;
 
-/**
- * Статусы запросов, ответов.
- * @author Septyq
- */
+// Статусы запросов, ответов
+
 public enum Status {
     OK,
     ERROR,
     EXIT;
 }
+
+

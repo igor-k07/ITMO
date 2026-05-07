@@ -1,16 +1,14 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CommandManager;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
-import managers.CommandManager;
 
+// Выводит справку по доступным командам
 
-/**
- * Команда 'help'. Выводит справку по доступным командам.
- * @author Septyq
- */
 public class Help extends Command<StandartRequest> {
   private final CommandManager commandManager;
 

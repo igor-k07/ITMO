@@ -1,49 +1,44 @@
-package runtime;
+package com.itmo.runtime;
 
-import java.util.Set;
+import com.itmo.commands.*;
+import com.itmo.managers.*;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.Status;
+import com.itmo.util.exceptions.LoadException;
+import com.itmo.util.exceptions.RuntimeInitException;
+import com.itmo.util.request.Request;
+import com.itmo.util.request.InitRequest;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import commands.*;
-import managers.*;
-import models.Entity;
-import util.Status;
-import util.exceptions.CollectionLoadException;
-import util.exceptions.RuntimeInitException;
-import util.transfer.request.empty.InitRequest;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
-import util.transfer.request.Request;
+import java.util.Set;
 
 
-/**
- * Обрабатывает запросы на исполнение комманд.
- * @author Septyq
- */
-public class RemoteRuntime extends Runtime {
-    private final FileManager fileManager;
-    private final CollectionManager<Entity> collectionManager;
+// Обработчик серверной части (Обрабатывает запросы на исполнение комманд)
+
+public class RemoteRuntime {
+    private final DumpManager dumpManager;
+    private final CollectionManager<Element> collectionManager;
     private final CommandManager commandManager;
 
     public RemoteRuntime(String fileName) throws RuntimeInitException {
-        this.commandManager = new DefaultCommandManager();
-        this.fileManager = new JSONManager(fileName);
+        this.commandManager = new CommandManager();
+        this.dumpManager = new DumpManager(fileName);
 
-        Collection<Entity> collection = new ArrayList<>();
+        Collection<Element> collection = new ArrayList<>();
         try {
-            collection = fileManager.readCollectionFromFile();
-        } catch (CollectionLoadException e) {
+            collection = dumpManager.readCollectionFromFile();
+        } catch (LoadException e) {
             throw new RuntimeInitException(e.getMessage());
         }
-        this.collectionManager = new HashSetCollectionManager<Entity>(collection);
+        this.collectionManager = new CollectionManager<Element>(collection);
     }
 
 
-    public void run(String... args) {};
-
-
     public void registerCommands() {
-        // Commands required by README
         commandManager.register("help", new Help(commandManager));
         commandManager.register("info", new Info(collectionManager));
         commandManager.register("show", new Show(collectionManager));
@@ -51,7 +46,7 @@ public class RemoteRuntime extends Runtime {
         commandManager.register("update", new Update(collectionManager));
         commandManager.register("remove_by_id", new RemoveById(collectionManager));
         commandManager.register("clear", new Clear(collectionManager));
-        commandManager.register("save", new Save(collectionManager, fileManager));
+        commandManager.register("save", new Save(collectionManager, dumpManager));
         commandManager.register("execute_script", new ExecuteScript());
         commandManager.register("exit", new Exit());
         commandManager.register("add_if_max", new AddIfMax(collectionManager));
@@ -68,14 +63,14 @@ public class RemoteRuntime extends Runtime {
         } else if (request instanceof StandartRequest) {
             return executeCommand((StandartRequest) request);
         } else {
-            return new Response<>(List.of("Unknowm request"), Status.ERROR);
+            return new Response<>(List.of("Неизвестный запрос"), Status.ERROR);
         }
     }
 
     private Response<?> executeCommand(StandartRequest request){
         String commandName = request.getName();
         if (!validateCommandName(commandName)) {
-            return new Response<>(List.of("Unknown command"), Status.ERROR);
+            return new Response<>(List.of("Неизвестная команда"), Status.ERROR);
         }
         Command<?> command = commandManager.getCommands().get(commandName);
         commandManager.addToHistory(command.getAttribute().getName());
@@ -90,3 +85,5 @@ public class RemoteRuntime extends Runtime {
         return commandsNames.contains(command);
     }
 }
+
+

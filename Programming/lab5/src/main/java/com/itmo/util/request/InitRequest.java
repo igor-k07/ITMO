@@ -1,4 +1,4 @@
-package com.itmo.util.transfer.request;
+package com.itmo.util.request;
 
 // Пустой запрос при запуске клиента
 

@@ -1,25 +1,23 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.Status;
+import com.itmo.util.request.CombinedRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import managers.CollectionManager;
-import models.Entity;
-import util.Status;
-import util.transfer.request.standart.CombinedRequest;
-import util.transfer.response.Response;
 
+// Обновляет значение элемента коллекции по ID
 
-/**
- * Команда 'update'. Обновляет значение элемента коллекции по ID.
- * @author Septyq
- */
 public class Update extends Command<CombinedRequest> {
-    private final CollectionManager<Entity> collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public Update(CollectionManager<Entity> collectionManager) {
+    public Update(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
-            "update <ID> {element}", 
-            "обновить значение элемента коллекции по ID",
+            "update <идентификатор> {элемент}", 
+            "обновить значение элемента коллекции по идентификатору",
             CombinedRequest.class
             ));
         this.collectionManager = collectionManager;
@@ -28,21 +26,23 @@ public class Update extends Command<CombinedRequest> {
     public Response<?> execute(CombinedRequest request) {
         try {
             Integer id = request.getId();
-            Entity entity = request.getEntity();
+            Element element = request.getElement();
             
             if (collectionManager.getById(id) == null) {
-                return new Response<>(List.of("Item not found"), Status.ERROR);
+                return new Response<>(List.of("Элемент не найден"), Status.ERROR);
             }   
 
-            Status result = collectionManager.updateById(id, entity);
+            Status result = collectionManager.updateById(id, element);
             
             if (result == Status.OK) {
-                return new Response<>(List.of("element updated"));
+                return new Response<>(List.of("Элемент обновлен"));
             } else {
-                return new Response<>(List.of("Item not found"), result);
+                return new Response<>(List.of("Элемент не найден"), result);
             }
         } catch (NumberFormatException e) {
-            return new Response<>(List.of("Invalid id"), Status.ERROR);
+            return new Response<>(List.of("Некорректный идентификатор"), Status.ERROR);
         }
     }
 }
+
+

@@ -1,32 +1,31 @@
-package com.itmo.util.forms;
+package com.itmo.util.asks;
 
 import com.itmo.models.Album;
-import com.itmo.util.console.IOConsole;
-import com.itmo.util.exceptions.InvalidFormException;
+import com.itmo.util.console.StandardConsole;
+import com.itmo.util.exceptions.InvalidAskException;
 import com.itmo.util.exceptions.ScriptSyntaxException;
 
 import java.util.NoSuchElementException;
 
-/**
- * Форма для Album
- */
+// Запрос на ввод данных для создания объекта Album
+
 public class AskAlbum extends Ask<Album> {
-    private final IOConsole console;
+    private final StandardConsole console;
     private final boolean fileMode;
 
-    public AskAlbum(IOConsole console) {
+    public AskAlbum(StandardConsole console) {
         this.console = console;
         this.fileMode = console.fileMode();
     }
 
     @Override
-    public Album build() throws InvalidFormException {
+    public Album build() throws InvalidAskException {
         try {
             Album album = new Album(askName(), askTracks(), askLength(), askSales());
-            if (!album.validate()) throw new InvalidFormException("Album validation failed");
+            if (!album.validate()) throw new InvalidAskException("Валидация альбома не пройдена");
             return album;
         } catch (ScriptSyntaxException e) {
-            throw new InvalidFormException(e.getMessage());
+            throw new InvalidAskException(e.getMessage());
         }
     }
 
@@ -35,18 +34,18 @@ public class AskAlbum extends Ask<Album> {
         boolean asked = false;
         do {
             try {
-                console.print("Enter album name: ");
+                console.print("Введите название альбома: ");
                 name = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(name);
-                if (name.equals("")) throw new ScriptSyntaxException("Invalid album name");
+                if (name.equals("")) throw new ScriptSyntaxException("Некорректное название альбома");
                 asked = true;
                 break;
             } catch (NoSuchElementException e) {
                 if (fileMode) {
                     asked = true;
-                    throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
+                    throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
                 } else {
-                    console.printError("Album name not recognized, enter it again");
+                    console.printError("Название альбома не распознано, введите еще раз");
                 }
             }
         } while (!asked);
@@ -57,15 +56,15 @@ public class AskAlbum extends Ask<Album> {
         boolean asked = false;
         do {
             try {
-                console.print("Enter tracks (Long) or empty for null: ");
+                console.print("Введите количество треков (Long) или оставьте пустым: ");
                 String s = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(s);
                 if (s.isEmpty()) return null;
                 Long v = Long.parseLong(s);
                 return v;
             } catch (NoSuchElementException | NumberFormatException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("Tracks not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Количество треков не распознано, введите еще раз");
             }
         } while (true);
     }
@@ -73,15 +72,15 @@ public class AskAlbum extends Ask<Album> {
     private Integer askLength() throws ScriptSyntaxException {
         do {
             try {
-                console.print("Enter length (Integer) or empty for null: ");
+                console.print("Введите длительность (Integer) или оставьте пустым: ");
                 String s = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(s);
                 if (s.isEmpty()) return null;
                 Integer v = Integer.parseInt(s);
                 return v;
             } catch (NoSuchElementException | NumberFormatException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("Length not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Длительность не распознана, введите еще раз");
             }
         } while (true);
     }
@@ -89,15 +88,17 @@ public class AskAlbum extends Ask<Album> {
     private Double askSales() throws ScriptSyntaxException {
         do {
             try {
-                console.print("Enter sales (Double): ");
+                console.print("Введите продажи (Double): ");
                 String s = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(s);
                 Double v = Double.parseDouble(s);
                 return v;
             } catch (NoSuchElementException | NumberFormatException e) {
-                if (fileMode) throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
-                console.printError("Sales not recognized, enter it again");
+                if (fileMode) throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
+                console.printError("Продажи не распознаны, введите еще раз");
             }
         } while (true);
     }
 }
+
+

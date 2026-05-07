@@ -1,32 +1,30 @@
-package com.itmo.util.forms;
+package com.itmo.util.asks;
 
 import com.itmo.models.Coordinates;
-import com.itmo.util.console.IOConsole;
-import com.itmo.util.exceptions.InvalidFormException;
+import com.itmo.util.console.StandardConsole;
+import com.itmo.util.exceptions.InvalidAskException;
 import com.itmo.util.exceptions.ScriptSyntaxException;
 
 import java.util.NoSuchElementException;
 
-/**
- * Класс формы для координат.
- * @author Septyq
- */
+// Запрос на ввод данных для создания объекта Coordinates
+
 public class AskCoordinates extends Ask<Coordinates> {
-    private final IOConsole console;
+    private final StandardConsole console;
     private final boolean fileMode;
 
-    public AskCoordinates(IOConsole console) {
+    public AskCoordinates(StandardConsole console) {
         this.console = console;
         this.fileMode = console.fileMode();
     }
 
-    public Coordinates build() throws InvalidFormException {
+    public Coordinates build() throws InvalidAskException {
         try {
             Coordinates coordinates = new Coordinates(askX(), askY());
-            if (!coordinates.validate()) throw new InvalidFormException("Coordinates validation failed");
+            if (!coordinates.validate()) throw new InvalidAskException("Валидация координат не пройдена");
             return coordinates;   
         } catch (Exception e) {
-            throw new InvalidFormException(e.getMessage());
+            throw new InvalidAskException(e.getMessage());
         }
     }
 
@@ -35,7 +33,7 @@ public class AskCoordinates extends Ask<Coordinates> {
         boolean asked = false;
         do {
             try {
-                console.print("Enter coordinate X (long): ");
+                console.print("Введите координату X (long): ");
                 String strX = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(strX);
                 x = Long.parseLong(strX);
@@ -44,9 +42,9 @@ public class AskCoordinates extends Ask<Coordinates> {
             } catch (NoSuchElementException | NumberFormatException e) {
                 if (fileMode) {
                     asked = true;
-                    throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
+                    throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
                 } else {
-                    console.printError("Coordinate X was not recognized, enter it again");
+                    console.printError("Координата X не распознана, введите еще раз");
                 }
             }
         } while (!asked);
@@ -59,7 +57,7 @@ public class AskCoordinates extends Ask<Coordinates> {
         boolean asked = false;
         do {
             try {
-                console.print("Enter coordinate Y (Long): ");
+                console.print("Введите координату Y (Long): ");
                 String strY = console.getUserScanner().nextLine().trim();
                 if (fileMode) console.println(strY);
                 if (strY == "") {return null;}
@@ -69,9 +67,9 @@ public class AskCoordinates extends Ask<Coordinates> {
             } catch (NoSuchElementException | NumberFormatException e) {
                 if (fileMode) {
                     asked = true;
-                    throw new ScriptSyntaxException("Invalid input data in script -> operation stopped");
+                    throw new ScriptSyntaxException("Некорректные входные данные в скрипте -> выполнение остановлено");
                 } else {
-                    console.printError("Coordinate Y was not recognized, enter it again");
+                    console.printError("Координата Y не распознана, введите еще раз");
                 }
             }
         } while (!asked);
@@ -80,3 +78,5 @@ public class AskCoordinates extends Ask<Coordinates> {
     }
     
 }
+
+

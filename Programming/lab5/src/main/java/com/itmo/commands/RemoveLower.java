@@ -1,35 +1,32 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.MusicBand;
+import com.itmo.util.request.ElementRequest;
+import com.itmo.util.response.Response;
 
 import java.util.Iterator;
 import java.util.List;
 
-import managers.CollectionManager;
-import util.transfer.request.standart.EntityRequest;
-import util.transfer.response.Response;
-import models.Entity;
-import models.MusicBand;;
+// Удаляет из коллекции все элементы, меньшие, чем заданный
 
+public class RemoveLower extends Command<ElementRequest> {
+    private final CollectionManager<Element> collectionManager;
 
-/**
- * Команда 'remove_lower {element}'. Удаляет из коллекции все элементы, меньшие, чем заданный.
- * @author Septyq
- */
-public class RemoveLower extends Command<EntityRequest> {
-    private final CollectionManager<Entity> collectionManager;
-
-    public RemoveLower(CollectionManager<Entity> collectionManager) {
+    public RemoveLower(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
-            "remove_lower {element}", 
+            "remove_lower {элемент}", 
             "удалить из коллекции все элементы, меньшие, чем заданный",
-            EntityRequest.class
+            ElementRequest.class
             ));
         this.collectionManager = collectionManager;
     }
 
-    public Response<?> execute(EntityRequest request) {
-        MusicBand target = (MusicBand) request.getEntity(); 
+    public Response<?> execute(ElementRequest request) {
+        MusicBand target = (MusicBand) request.getElement();
         
-        Iterator<Entity> iterator = collectionManager.getCollection().iterator();
+        Iterator<Element> iterator = collectionManager.getCollection().iterator();
         int removedCount = 0;
         
         while (iterator.hasNext()) {
@@ -40,6 +37,8 @@ public class RemoveLower extends Command<EntityRequest> {
             }
         }
         
-        return new Response<>(List.of("Removed " + removedCount + " elements"));
+        return new Response<>(List.of("Удалено элементов: " + removedCount));
     }
 }
+
+

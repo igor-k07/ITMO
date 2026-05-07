@@ -1,4 +1,4 @@
-package com.itmo.models;
+package com.itmo.models.abstracts;
 
 import com.itmo.util.Validatable;
 

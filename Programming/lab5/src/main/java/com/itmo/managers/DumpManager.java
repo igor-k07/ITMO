@@ -1,7 +1,6 @@
 package com.itmo.managers;
 
 import com.google.gson.*;
-import com.itmo.managers.interfaces.FileManager;
 import com.itmo.models.abstracts.Element;
 import com.itmo.models.MusicBand;
 import com.itmo.util.ZonedDateTimeAdapter;
@@ -15,9 +14,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-// Менеджер для сохранения и загрузки коллекции из файла JSON
+// Менеджер для сохранения и загрузки коллекции из файла
 
-public class JSONManager implements FileManager {
+public class DumpManager {
     private final String fileName;
 
     private final Gson writeGson = new GsonBuilder()
@@ -31,7 +30,7 @@ public class JSONManager implements FileManager {
         .registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter())
         .create();
 
-    public JSONManager(String fileName) {
+    public DumpManager(String fileName) {
         this.fileName = fileName;
     }
     

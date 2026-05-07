@@ -1,21 +1,18 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.ArrayList;
 
-import managers.CollectionManager;
-import models.Entity;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+// Выводит все элементы коллекции
 
-
-/**
- * Команда 'show'. Выводит все элементы коллекции.
- * @author Septyq
- */
 public class Show extends Command<StandartRequest> {
-    private final CollectionManager<Entity>collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public Show(CollectionManager<Entity> collectionManager) {
+    public Show(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
             "show", 
             "вывести все элементы коллекции",
@@ -28,3 +25,5 @@ public class Show extends Command<StandartRequest> {
         return new Response<>(new ArrayList<>(collectionManager.getCollection()));
     }
 }
+
+

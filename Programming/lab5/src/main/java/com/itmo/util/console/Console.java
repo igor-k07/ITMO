@@ -1,9 +1,7 @@
-package util.console;
+package com.itmo.util.console;
 
-/**
- * Определяет поведение консоли.
- * @author Septyq
- */
+// Интерфейс, определяющий поведение консоли
+
 public interface Console {
     void print(Object obj);
     void println(Object obj);
@@ -12,3 +10,4 @@ public interface Console {
     String getPromptSymbol();
     String getScriptPromptSymbol();
 }
+

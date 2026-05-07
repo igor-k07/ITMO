@@ -2,8 +2,8 @@ package com.itmo.util.exceptions;
 
 // Исключение для ошибок загрузки коллекции
 
-public class CollectionLoadException extends Exception {
-    public CollectionLoadException(String message) {
+public class LoadException extends Exception {
+    public LoadException(String message) {
         super(message);
     }
 }

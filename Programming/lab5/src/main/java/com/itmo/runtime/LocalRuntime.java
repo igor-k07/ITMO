@@ -1,33 +1,25 @@
-package runtime;
+package com.itmo.runtime;
 
-import util.Status;
+import com.itmo.util.RecursionController;
+import com.itmo.util.Status;
+import com.itmo.util.console.StandardConsole;
+import com.itmo.util.exceptions.IncorrectRequestException;
+import com.itmo.util.exceptions.RuntimeInitException;
+import com.itmo.util.exceptions.ScriptSyntaxException;
+import com.itmo.util.request.Request;
+import com.itmo.util.request.RequestBuilder;
+import com.itmo.util.request.InitRequest;
+import com.itmo.util.response.Response;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-
-import util.console.IOConsole;
-import util.controller.RecursionController;
-import util.exceptions.IncorrectRequestException;
-import util.exceptions.RuntimeInitException;
-import util.exceptions.ScriptSyntaxException;
-import util.transfer.request.Request;
-import util.transfer.request.RequestBuilder;
-import util.transfer.request.empty.InitRequest;
-import util.transfer.response.Response;
+import java.util.*;
 
 
-/**
- * Считывает команды из консоли или скрипта, выводит результат.
- * @author Septyq
- */
-public class LocalRuntime extends Runtime{
-    private final IOConsole console;
+// Обработчик клиентской части (Считывает команды из консоли или скрипта, выводит результат)
+
+public class LocalRuntime {
+    private final StandardConsole console;
     private final Scanner scanner;
     private final RemoteRuntime remoteRuntime;
     private Map<String, Class<? extends Request>> commandsAttributes = new HashMap<>(); 
@@ -36,7 +28,7 @@ public class LocalRuntime extends Runtime{
 
     public LocalRuntime(RemoteRuntime remoteRuntime, RecursionController recursionController) {
         this.recursionController = recursionController;
-        this.console = new IOConsole();
+        this.console = new StandardConsole();
         console.setUserScanner(new Scanner(System.in));
         this.scanner = this.console.getUserScanner();
         this.remoteRuntime = remoteRuntime;
@@ -52,13 +44,13 @@ public class LocalRuntime extends Runtime{
             case "script":
                 String fileName = args[1];
                 if (fileName == "") {
-                    console.printError("Invalid script file name: "+fileName);
+                    console.printError("Некорректное имя файла скрипта: " + fileName);
                     System.exit(0);
                 }
                 runScriptMode(fileName);
                 break;
             default:
-                console.printError("Invalid local runtime mode");
+                console.printError("Некорректный режим запуска");
         }
     }
     
@@ -69,12 +61,12 @@ public class LocalRuntime extends Runtime{
         scriptStack.add(fileName);
 
         try (Scanner scriptScanner = new Scanner(new File(fileName))) {
-            console.println(String.format("--> RUNNING SCRIPT: %s ...", fileName));
+            console.println(String.format("--ЗАПУСК СКРИПТА: %s ...", fileName));
 
             File file = new File(fileName);
-            if (!file.exists()) throw new FileNotFoundException("File does not exist");
-            if (!file.canRead()) throw new SecurityException("No read permission for file: " + file.getAbsolutePath());
-            if (!file.canWrite()) throw new SecurityException("No write permission for file: " + file.getAbsolutePath());
+            if (!file.exists()) throw new FileNotFoundException("Файл не существует");
+            if (!file.canRead()) throw new SecurityException("Нет прав на чтение файла: " + file.getAbsolutePath());
+            if (!file.canWrite()) throw new SecurityException("Нет прав на запись в файл: " + file.getAbsolutePath());
             if (!scriptScanner.hasNext()) throw new NoSuchElementException();
 
             Scanner tmpScanner = console.getUserScanner();
@@ -101,15 +93,15 @@ public class LocalRuntime extends Runtime{
             console.setUserMode();
 
             if (commandStatus == Status.ERROR && !(userCommand[0].equals("execute_script") && !userCommand[1].isEmpty())) {
-                console.println("Invalid script");
+                console.println("Некорректный скрипт");
             }
 
         } catch (FileNotFoundException exception) {
-            console.printError("File not found");
+            console.printError("Файл не найден");
         } catch (NoSuchElementException exception) {
-            console.printError("File is empty");
+            console.printError("Файл пуст");
         } catch (IllegalStateException exception) {
-            console.printError("Unknowm error");
+            console.printError("Неизвестная ошибка");
             System.exit(0);
         } catch (SecurityException e) {
             console.printError(e.getMessage());
@@ -120,8 +112,7 @@ public class LocalRuntime extends Runtime{
 
     
     private void runInteractiveMode() {
-        console.println("<----- COLLECTION MANAGER CLI STARTED ----->");
-
+        console.println("--ПРОГРАММА УСПЕШНО ЗАПУЩЕННА--");
         String[] userCommand = {"", ""};
         Status commandStatus = setCommandAttributes();
 
@@ -143,15 +134,14 @@ public class LocalRuntime extends Runtime{
 
     private Status executeCommand(String commandName, List<?> args) {
         if (commandName == "" || commandName == null) return Status.ERROR;
-
-        console.println(commandName);
+        
         if (commandName.equals("execute_script")) {
             Response<?> scriptResponse = new Response<>();
             String fileName = (String) args.get(0);
             if (recursionController.checkRecursion(fileName)) {
-                scriptResponse = new Response<>(List.of("Script has recursion!"), Status.ERROR);
+                scriptResponse = new Response<>(List.of("Обнаружена рекурсия в скрипте!"), Status.ERROR);
             } else {
-                if (fileName == "") scriptResponse  = new Response<>(List.of("Invalid script name"), Status.ERROR);
+                if (fileName == "") scriptResponse  = new Response<>(List.of("Некорректное имя скрипта"), Status.ERROR);
 
                 recursionController.pushScript(fileName);
 
@@ -177,7 +167,7 @@ public class LocalRuntime extends Runtime{
             if (response.getBody() != null && !response.getBody().isEmpty()) {
                 console.printError(response.getBody().get(0).toString());
             } else {
-                console.printError("Unknown error");
+                console.printError("Неизвестная ошибка");
             }
         }
         return status;
@@ -199,13 +189,13 @@ public class LocalRuntime extends Runtime{
             List<?> body = response.getBody();
         
             if (body == null || body.isEmpty()) {
-                throw new RuntimeInitException("Empty response body");
+                throw new RuntimeInitException("Пустое тело ответа");
             }
 
             Object item = body.get(0);
             if (!(item instanceof Map<?, ?>)) {
-                throw new RuntimeInitException("Expected Map, got: " + 
-                    (item != null ? item.getClass().getSimpleName() : "null"));
+                throw new RuntimeInitException("Ожидалась карта команд, получено: " + 
+                    (item != null ? item.getClass().getSimpleName() : "пустое значение"));
             }
 
             commandsAttributes = (Map<String, Class<? extends Request>>) item;
@@ -235,3 +225,5 @@ public class LocalRuntime extends Runtime{
 
 
 }
+
+

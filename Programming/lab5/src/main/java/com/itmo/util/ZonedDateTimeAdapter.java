@@ -1,13 +1,13 @@
-package util;
+package com.itmo.util;
 
 import com.google.gson.*;
+
 import java.lang.reflect.Type;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Адаптер для ZonedDateTime для Gson.
- */
+// Адаптер для ZonedDateTime для Gson
+
 public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, JsonDeserializer<ZonedDateTime> {
     @Override
     public JsonElement serialize(ZonedDateTime dateTime, Type typeOfSrc, JsonSerializationContext context) {
@@ -19,3 +19,5 @@ public class ZonedDateTimeAdapter implements JsonSerializer<ZonedDateTime>, Json
         return ZonedDateTime.parse(json.getAsJsonPrimitive().getAsString());
     }
 }
+
+

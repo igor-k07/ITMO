@@ -1,21 +1,18 @@
-package commands;
+package com.itmo.commands;
 
-import managers.CollectionManager;
-import models.Entity;
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+// Очищает коллекцию
 
-/**
- * Команда 'clear'. Очищает коллекцию.
- * @author Septyq
- */
 public class Clear extends Command<StandartRequest> {
-    private final CollectionManager<Entity> collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public Clear(CollectionManager<Entity> collectionManager) {
+    public Clear(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
             "clear", 
             "очистить коллекцию", 
@@ -26,6 +23,8 @@ public class Clear extends Command<StandartRequest> {
 
     public Response<?> execute(StandartRequest request) {
         collectionManager.clearCollection();
-        return new Response<>(List.of("collection cleared"));
+        return new Response<>(List.of("Коллекция очищена"));
     }
 }
+
+

@@ -3,8 +3,8 @@ package com.itmo.util.exceptions;
 
 // Исключение для ошибок заполнения формы нового элемента коллекции
 
-public class InvalidFormException extends Exception {
-    public InvalidFormException(String message) {
+public class InvalidAskException extends Exception {
+    public InvalidAskException(String message) {
         super(message);
     }
 }

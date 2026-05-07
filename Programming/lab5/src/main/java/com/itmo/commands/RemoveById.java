@@ -1,26 +1,24 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.MusicBand;
+import com.itmo.util.Status;
+import com.itmo.util.request.IdRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import managers.CollectionManager;
-import models.Entity;
-import models.MusicBand;
-import util.Status;
-import util.transfer.request.standart.IdRequest;
-import util.transfer.response.Response;
 
+// Удаляет элемент из коллекции по id
 
-/**
- * Команда 'remove_by_id'. Удаляет элемент из коллекции по ID.
- * @author Septyq
- */
 public class RemoveById extends Command<IdRequest> {
-    private final CollectionManager<Entity> collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public RemoveById(CollectionManager<Entity> collectionManager) {
+    public RemoveById(CollectionManager<Element> collectionManager) {
         super(new CommandAttribute(
-            "remove_by_id <ID>", 
-            "удалить элемент из коллекции по ID",
+            "remove_by_id <идентификатор>", 
+            "удалить элемент из коллекции по идентификатору",
             IdRequest.class
             ));
         this.collectionManager = collectionManager;
@@ -29,9 +27,11 @@ public class RemoveById extends Command<IdRequest> {
     public Response<?> execute(IdRequest request) {
         MusicBand bandToRemove = (MusicBand) collectionManager.getById(request.getId());
         if (bandToRemove == null) {
-            return new Response<>(List.of("Item not found"), Status.ERROR);
+            return new Response<>(List.of("Элемент не найден"), Status.ERROR);
         }
         collectionManager.removeFromCollection(bandToRemove);
-        return new Response<>(List.of("element removed"));
+        return new Response<>(List.of("Элемент удален"));
     }
 }
+
+

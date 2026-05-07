@@ -1,7 +1,7 @@
-package commands.interfaces;
+package com.itmo.commands.interfaces;
 
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 
 /**
@@ -11,3 +11,5 @@ import util.transfer.response.Response;
 public interface Executable<T extends StandartRequest> {
     Response<?> execute(T request);
 }
+
+

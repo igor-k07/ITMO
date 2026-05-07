@@ -1,35 +1,36 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.MusicBand;
+import com.itmo.util.request.ElementRequest;
+import com.itmo.util.response.Response;
 
 import java.util.List;
 
-import managers.CollectionManager;
-import models.Entity;
-import models.MusicBand;
-import util.transfer.request.standart.EntityRequest;
-import util.transfer.response.Response;
+// Добавляет новый элемент в коллекцию, если он больше максимального
 
+public class AddIfMax extends Command<ElementRequest> {
+    private final CollectionManager<Element> collectionManager;
 
-public class AddIfMax extends Command<EntityRequest> {
-    private final CollectionManager<Entity> collectionManager;
-
-    public AddIfMax(CollectionManager<Entity> collectionManager) {
-        super(new CommandAttribute("add_if_max {element}", "добавить новый элемент, если он больше максимального", EntityRequest.class));
+    public AddIfMax(CollectionManager<Element> collectionManager) {
+        super(new CommandAttribute("add_if_max {элемент}", "добавить новый элемент, если он больше максимального", ElementRequest.class));
         this.collectionManager = collectionManager;
     }
 
-    public Response<?> execute(EntityRequest request) {
-        MusicBand band = (MusicBand) request.getEntity();
+    public Response<?> execute(ElementRequest request) {
+        MusicBand band = (MusicBand) request.getElement();
         // find current max
         MusicBand max = null;
-        for (Entity e : collectionManager.getCollection()) {
+        for (Element e : collectionManager.getCollection()) {
             MusicBand b = (MusicBand) e;
             if (max == null || b.compareTo(max) > 0) max = b;
         }
 
         if (max == null || band.compareTo(max) > 0) {
             collectionManager.addToCollection(band);
-            return new Response<>(List.of("element added"));
+            return new Response<>(List.of("Элемент добавлен"));
         }
-        return new Response<>(List.of("element not added"));
+        return new Response<>(List.of("Элемент не добавлен"));
     }
 }

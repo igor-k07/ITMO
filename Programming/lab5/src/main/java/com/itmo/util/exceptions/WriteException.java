@@ -2,8 +2,8 @@ package com.itmo.util.exceptions;
 
 // Исключение для ошибок выгрузки (записи) коллекции
 
-public class CollectionWriteException extends Exception {
-    public CollectionWriteException(String message) {
+public class WriteException extends Exception {
+    public WriteException(String message) {
         super(message);
     }
 }

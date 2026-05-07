@@ -1,13 +1,10 @@
-package com.itmo.util.forms;
+package com.itmo.util.asks;
 
-import com.itmo.util.exceptions.InvalidFormException;
+import com.itmo.util.exceptions.InvalidAskException;
 
+// Абстрактный класс для запроса ввода пользовательских данных
 
-/**
- * Абстрактный класс формы для ввода пользовательских данных.
- * @param <T> создаваемый объект
- * @author Septyq
- */
 public abstract class Ask<T> {
-  public abstract T build() throws InvalidFormException;
+  public abstract T build() throws InvalidAskException;
 }
+

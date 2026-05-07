@@ -1,20 +1,22 @@
-package commands;
+package com.itmo.commands;
+
+import com.itmo.managers.CollectionManager;
+import com.itmo.models.abstracts.Element;
+import com.itmo.models.MusicBand;
+import com.itmo.util.request.StandartRequest;
+import com.itmo.util.response.Response;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import managers.CollectionManager;
-import models.Entity;
-import models.MusicBand;
-import util.transfer.request.standart.StandartRequest;
-import util.transfer.response.Response;
+// Выводит элемент с максимальным количеством участников
 
 public class MaxByNumberOfParticipants extends Command<StandartRequest> {
-    private final CollectionManager<Entity> collectionManager;
+    private final CollectionManager<Element> collectionManager;
 
-    public MaxByNumberOfParticipants(CollectionManager<Entity> collectionManager) {
-        super(new CommandAttribute("max_by_number_of_participants", "вывести объект с максимальным numberOfParticipants", StandartRequest.class));
+    public MaxByNumberOfParticipants(CollectionManager<Element> collectionManager) {
+        super(new CommandAttribute("max_by_number_of_participants", "вывести объект с максимальным количеством участников", StandartRequest.class));
         this.collectionManager = collectionManager;
     }
 
@@ -27,7 +29,7 @@ public class MaxByNumberOfParticipants extends Command<StandartRequest> {
         if (opt.isPresent()) {
             return new Response<>(List.of(opt.get()));
         } else {
-            return new Response<>(List.of("No elements with numberOfParticipants"));
+            return new Response<>(List.of("Нет элементов с указанным количеством участников"));
         }
     }
 }
