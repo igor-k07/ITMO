@@ -1,0 +1,127 @@
+clear
+save
+
+add
+Queen
+12
+-45
+4
+15
+ROCK
+A Night at the Opera
+12
+4332
+6500000.0
+
+add
+Nirvana
+-123
+89
+3
+3
+GRUNGE
+Nevermind
+13
+4218
+30000000.0
+
+add
+The Beatles
+4
+6
+4
+17
+ROCK
+Abbey Road
+17
+3408
+31000000.0
+
+add
+Led Zeppelin
+78
+-23
+4
+8
+HARD_ROCK
+Led Zeppelin IV
+8
+2512
+37000000.0
+
+add
+Pink Floyd
+-56
+123
+5
+14
+PSYCHEDELIC_ROCK
+The Dark Side of the Moon
+10
+4316
+45000000.0
+
+add
+Metallica
+234
+-67
+4
+11
+HEAVY_METAL
+Master of Puppets
+8
+3252
+16000000.0
+
+add
+AC/DC
+156
+34
+5
+18
+HARD_ROCK
+Back in Black
+10
+2574
+50000000.0
+
+add
+Red Hot Chili Peppers
+-89
+201
+4
+11
+FUNK_ROCK
+Californication
+15
+4852
+16000000.0
+
+add
+The Rolling Stones
+67
+-112
+4
+25
+ROCK
+Sticky Fingers
+10
+2448
+12000000.0
+
+add
+Guns N' Roses
+345
+78
+5
+6
+HARD_ROCK
+Appetite for Destruction
+12
+3318
+30000000.0
+
+save
+
+execute_script script.txt
+show

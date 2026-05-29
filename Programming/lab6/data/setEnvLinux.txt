@@ -1,0 +1,2 @@
+export DATA_FILE=data/MusicBands.json
+echo $DATA_FILE
