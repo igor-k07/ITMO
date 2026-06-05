@@ -28,6 +28,7 @@ public class Help extends Command<StandartRequest> {
       .forEach(command -> {
         infoText.append(command.getAttribute().getName() + ": " + command.getAttribute().getDescription() + "\n\n");
       });
+    // throw new RuntimeException();
     return new Response<String>(List.of(infoText.toString()));
   }
 }

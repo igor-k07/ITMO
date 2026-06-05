@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.List;
 
-public class ClientTransport {
+public class ClientTransport implements RequestTransport {
     private static final int CONNECT_TIMEOUT_MS = 2000;
     private static final int READ_TIMEOUT_MS = 3000;
 

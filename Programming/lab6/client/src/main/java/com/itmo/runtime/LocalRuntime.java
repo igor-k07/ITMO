@@ -1,6 +1,6 @@
 package com.itmo.runtime;
 
-import com.itmo.network.ClientTransport;
+import com.itmo.network.RequestTransport;
 import com.itmo.util.RecursionController;
 import com.itmo.util.Status;
 import com.itmo.util.console.StandardConsole;
@@ -21,12 +21,12 @@ import java.util.*;
 public class LocalRuntime {
     private final StandardConsole console;
     private final Scanner scanner;
-    private final ClientTransport transport;
+    private final RequestTransport transport;
     private Map<String, Class<? extends Request>> commandsAttributes = new HashMap<>(); 
     private final List<String> scriptStack = new ArrayList<>();
     private RecursionController recursionController;
 
-    public LocalRuntime(ClientTransport transport, RecursionController recursionController) {
+    public LocalRuntime(RequestTransport transport, RecursionController recursionController) {
         this.recursionController = recursionController;
         this.console = new StandardConsole();
         console.setUserScanner(new Scanner(System.in));

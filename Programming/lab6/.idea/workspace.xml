@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa3b97ee-136e-4e2e-ac17-539f79c67a8a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/TESTS.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/k71.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/k92.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Курсовая.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Кучерявый Игорь. Курсовая 2 часть.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Кучерявый Игорь501603. Курсовая часть 1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№7.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№8.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/дз1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Арифметика_пособие.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Основы теории множеств пособие.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/Sbornik_zadach_Ch_1_-_Efimov_A_V__red__1986.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/Вопросы_к_экзамену_ЛинАл_1_семестр.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/ЛА_силлабус_2025_2026_1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Sbornik_zadach_Ch_1_-_Efimov_A_V__red__1986.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Вопросы_к_экзамену_Матанализ_1_семестр.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Матанализ пособие.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Силлабус_Математический_анализ_база_1_семестр_2025_2026_уч_год.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/Request.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/empty/InitRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/CombinedRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/ElementRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/IdRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/StandartRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/StringRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/itmo/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/itmo/commands/Help.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DTdniSezNCUCfpgDdAROuiU1eN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Maven.lab6 [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/igor/Projects/ITMO/Programming/lab6",
+    "onboarding.tips.debug.path": "/Users/igor/Projects/ITMO/Programming/lab6/src/main/java/org/example/Main.java"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.itmo.ClientMain" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="DATA_FILE" value="data/MusicBands.json" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.itmo.ServerMain" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa3b97ee-136e-4e2e-ac17-539f79c67a8a" name="Changes" comment="" />
+      <created>1778310161864</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778310161864</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
