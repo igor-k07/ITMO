@@ -34,21 +34,9 @@
       <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Матанализ пособие.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Силлабус_Математический_анализ_база_1_семестр_2025_2026_уч_год.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/empty/InitRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/CombinedRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/ElementRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/IdRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/StandartRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/itmo/util/transfer/request/standart/StringRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/itmo/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/itmo/commands/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/RequestPersistenceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/RequestPersistenceProxy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -25,31 +25,30 @@ public class RequestPersistenceProxy implements RequestTransport {
     @Override
     public synchronized Response<?> send(Request request) {
         if (request instanceof InitRequest) {
-            return delegate.send(request);
+            return callDelegate(request);
         }
 
         Response<?> flushedResponse = flushQueue();
-        if (shouldRetry(flushedResponse) && !queuedRequests.isEmpty()) {
+        if (flushedResponse != null && !queuedRequests.isEmpty()) {
             queuedRequests.addLast(request);
             return new Response<>(List.of("Сервер недоступен, запрос отложен в памяти клиента"), Status.ERROR);
         }
 
-        Response<?> response = delegate.send(request);
-        if (shouldRetry(response)) {
+        try {
+            return delegate.send(request);
+        } catch (TransportUnavailableException e) {
             queuedRequests.addLast(request);
             return new Response<>(List.of("Сервер недоступен, запрос отложен в памяти клиента"), Status.ERROR);
         }
-
-        return response;
     }
 
     private synchronized Response<?> flushQueue() {
         while (!queuedRequests.isEmpty()) {
             Request queuedRequest = queuedRequests.peekFirst();
-            Response<?> response = delegate.send(queuedRequest);
-//            ретраим только при транспортной ошибке, а не при ошибке команды на сервере
-            if (shouldRetry(response)) {
-                return response;
+            try {
+                delegate.send(queuedRequest);
+            } catch (TransportUnavailableException e) {
+                return new Response<>(List.of(e.getMessage()), Status.ERROR);
             }
             queuedRequests.removeFirst();
         }
@@ -57,20 +56,12 @@ public class RequestPersistenceProxy implements RequestTransport {
         return new Response<>(List.of("Очередь запросов успешно отправлена"), Status.OK);
     }
 
-    private boolean shouldRetry(Response<?> response) {
-        if (response.getStatus() == Status.OK) {
-            return false;
+    private Response<?> callDelegate(Request request) {
+        try {
+            return delegate.send(request);
+        } catch (TransportUnavailableException e) {
+            return new Response<>(List.of(e.getMessage()), Status.ERROR);
         }
-
-        if (response.getBody().isEmpty()) {
-            return true;
-        }
-
-        String message = String.valueOf(response.getBody().get(0));
-        return message.startsWith("Сервер недоступен")
-                || message.startsWith("Сервер не отвечает")
-                || message.startsWith("Некорректная длина ответа")
-                || message.startsWith("Некорректный формат ответа");
     }
 
     private void startRetryLoop() {

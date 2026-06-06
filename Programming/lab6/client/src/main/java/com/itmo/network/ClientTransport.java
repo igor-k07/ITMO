@@ -51,9 +51,9 @@ public class ClientTransport implements RequestTransport {
                 return new Response<>(List.of("Некорректный формат ответа"), Status.ERROR);
             }
         } catch (SocketTimeoutException e) {
-            return new Response<>(List.of("Сервер не отвечает"), Status.ERROR);
+            throw new TransportUnavailableException("Сервер не отвечает", e);
         } catch (IOException | ClassNotFoundException e) {
-            return new Response<>(List.of("Сервер недоступен"), Status.ERROR);
+            throw new TransportUnavailableException("Сервер недоступен", e);
         }
     }
 }
