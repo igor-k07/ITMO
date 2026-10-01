@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-
 // Обработчик клиентской части (Считывает команды из консоли или скрипта, выводит результат)
 
 public class LocalRuntime {

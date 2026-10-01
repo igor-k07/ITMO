@@ -1,0 +1,5 @@
+$env:DB_HOST="pg"
+$env:DB_PORT="5432"
+$env:DB_NAME="studs"
+$env:DB_USER="YOUR_LOGIN"
+$env:DB_PASSWORD="YOUR_PASSWORD"

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa3b97ee-136e-4e2e-ac17-539f79c67a8a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab2/4_query.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab4/Query_4.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab4/queries.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/.idea/lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/.idea/lab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Даталогическая модель.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Инфологическая модель.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Лабораторная работа 1. Кучерявый Игорь.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Лабораторная работа 1. Кучерявый Игорь.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab2/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab2/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab2/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/password.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_7.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/журнал.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../History/Русские эмигранты 1917-1941.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/TESTS.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/k71.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/k92.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Курсовая.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Кучерявый Игорь. Курсовая 2 часть.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/courseworks/Кучерявый Игорь501603. Курсовая часть 1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№7.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/Дз_№8.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/homeworks/дз1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Арифметика_пособие.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/discrete/Основы теории множеств пособие.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/Sbornik_zadach_Ch_1_-_Efimov_A_V__red__1986.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/Вопросы_к_экзамену_ЛинАл_1_семестр.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/linear_algebra/ЛА_силлабус_2025_2026_1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Sbornik_zadach_Ch_1_-_Efimov_A_V__red__1986.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Вопросы_к_экзамену_Матанализ_1_семестр.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Матанализ пособие.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Силлабус_Математический_анализ_база_1_семестр_2025_2026_уч_год.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/bcomp-ng.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/custom.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/lab4/Л4-Кучерявый Игорь.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/lab5/мануал.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/super_custom_bcomp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Методические указания к выполнению лабораторных работ и рубежного контроля БЭВМ 2019 bcomp-ng v.1.45.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Презентация лекций 2019 часть 3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Презентация лекций 2019 часть 4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UsefulGitHubs.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DTdniSezNCUCfpgDdAROuiU1eN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Maven.lab6 [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "appmod/java-upgrade-20260810023114",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/igor/Projects/ITMO/Programming/lab7",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/igor/Projects/ITMO/Programming/lab6/src/main/java/org/example/Main.java"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.itmo.ClientMain" />
+      <module name="client" />
+      <option name="PROGRAM_PARAMETERS" value="localhost 5555" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="DB_NAME" value="studs" />
+        <env name="DB_PASSWORD" value="quwWyeljqwj125fp" />
+        <env name="DB_PORT" value="15432" />
+        <env name="DB_USER" value="s501603" />
+        <env name="DB_HOST" value="localhost" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.itmo.ServerMain" />
+      <module name="server" />
+      <option name="PROGRAM_PARAMETERS" value="5555" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa3b97ee-136e-4e2e-ac17-539f79c67a8a" name="Changes" comment="" />
+      <created>1778310161864</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778310161864</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
