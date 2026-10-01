@@ -5,9 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa3b97ee-136e-4e2e-ac17-539f79c67a8a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab2/4_query.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab4/Query_4.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DataBases/lab4/queries.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab7/create_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/.idea/lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/.idea/lab1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/Data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab1/triger.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Даталогическая модель.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Инфологическая модель.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Лабораторная работа 1. Кучерявый Игорь.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab1/Лабораторная работа 1. Кучерявый Игорь.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab2/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBases/lab2/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/lab2/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/password.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/theory/lection_7.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBases/журнал.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../History/Русские эмигранты 1917-1941.pptx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/TESTS.DAT" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/discrete/Karno/k1.pdb" beforeDir="false" />
@@ -33,10 +52,19 @@
       <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Вопросы_к_экзамену_Матанализ_1_семестр.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Матанализ пособие.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Math/math_analysis/Силлабус_Математический_анализ_база_1_семестр_2025_2026_уч_год.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/bcomp-ng.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/custom.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/lab4/Л4-Кучерявый Игорь.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/lab5/мануал.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/super_custom_bcomp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Методические указания к выполнению лабораторных работ и рубежного контроля БЭВМ 2019 bcomp-ng v.1.45.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Презентация лекций 2019 часть 3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OPD/theory/Презентация лекций 2019 часть 4.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/src/main/java/com/itmo/runtime/LocalRuntime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/ClientTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/RequestPersistenceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/itmo/network/RequestPersistenceProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UsefulGitHubs.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,24 +83,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Client.executor": "Run",
-    "Application.Server.executor": "Run",
-    "Maven.lab6 [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/igor/Projects/ITMO/Programming/lab6",
-    "onboarding.tips.debug.path": "/Users/igor/Projects/ITMO/Programming/lab6/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.lab6 [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;appmod/java-upgrade-20260810023114&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/igor/Projects/ITMO/Programming/lab6&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/igor/Projects/ITMO/Programming/lab6/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.Server">
+}</component>
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.itmo.ClientMain" />
       <module name="client" />
@@ -93,8 +122,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Server" />
       <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
     </list>
   </component>
   <component name="TaskManager">

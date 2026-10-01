@@ -23,10 +23,10 @@ CREATE TABLE "scientific_object" (
 );
 
 CREATE TABLE "research" (
-  "id" SERIAL PRIMARY KEY,
   "id_researcher" integer NOT NULL,
-  "id_discovery" integer,
-  "id_sc_object" integer NOT NULL
+  "id_discovery" integer NOT NULL,
+  "id_sc_object" integer NOT NULL,
+  PRIMARY KEY ("id_researcher", "id_discovery", "id_sc_object")
 );
 
 CREATE TABLE "expectation" (
@@ -69,10 +69,10 @@ VALUES
 INSERT INTO "scientific_object" ("id", "title", "description")
 VALUES
   (1, 'ДНК', NULL);
-INSERT INTO "research" ("id", "id_researcher", "id_discovery", "id_sc_object")
+INSERT INTO "research" ("id_researcher", "id_discovery", "id_sc_object")
 VALUES
-  (1, 1, 1, 1),
-  (2, 2, 1, 1);
+  (1, 1, 1),
+  (2, 1, 1);
 INSERT INTO "purpose" ("id", "description")
 VALUES
   (1, 'служить во благо');    
